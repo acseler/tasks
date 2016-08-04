@@ -1,17 +1,20 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 5.0.0'
+gem 'rails', '5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+
+gem 'sass-rails', '~> 5.0.0'
+gem 'sprockets', '3.6.3'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'haml-rails', '~> 0.9.0'
 
 gem 'cancancan'
-gem 'devise'
+gem 'devise_token_auth'
 gem 'omniauth-facebook'
 
 gem 'carrierwave', '~> 0.9'
@@ -22,13 +25,19 @@ gem 'ffaker'
 gem 'rails_12factor', group: :production
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'bower-rails'
 gem 'angularjs-rails'
+gem 'angular-ui-router-rails'
+gem 'angular-rails-templates'
+gem 'angular_rails_csrf', git: 'https://github.com/differencialx/angular_rails_csrf'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
 
 group :development do

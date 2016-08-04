@@ -1,11 +1,14 @@
 !!!
-%html{ 'ng-app': true }
+%html{ ng: { app: 'todoList' } }
 %head
 %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 %title TodoList
 = csrf_meta_tags
-= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'application'
+= javascript_include_tag 'application'
 %body
   .main-wrap
-    = yield
+    %div.container{ 'ng-include': "'_header.html'" }
+    -#%toaster-container{ toaster: { options: "{'position-class': 'toast-top-left'}" }}
+    %toast
+    %div.container.main-view-container{'ui-view': true}

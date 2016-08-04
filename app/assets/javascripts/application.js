@@ -12,5 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular
+//= require angular/angular
+//= require angular-animate/angular-animate
+//= require angular-ui-router
+//= require angular-cookie/angular-cookie
+//= require angular-rails-templates
+//= require ng-token-auth
+//= require angular-cookies
+//= require angular-translate
+//= require ngtoast
+//= require angular-sanitize
+//= require app
+//= require_tree ./templates
+//= require_tree ./controllers
 //= require_tree .

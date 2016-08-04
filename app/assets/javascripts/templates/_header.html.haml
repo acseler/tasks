@@ -1,0 +1,13 @@
+.row
+  .header.col-xs-12
+    .header-content
+      %ul.pull-right
+        %li{ ng: { show: '!user.id' } }
+          %a{ ng: { href: '/sign_in' } }
+            {{'sign_in' | translate}}
+        %li{ ng: { show: '!user.id' } }
+          %a{ ng: { href: '/sign_up' } }
+            {{'sign_up' | translate}}
+        %li{ ng: { show: 'user.id' } }
+          %a{ ng: { click: 'signOut()' }, href: '#' }
+            {{'sign_out' | translate}}
