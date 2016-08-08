@@ -1,0 +1,25 @@
+.row{ ng: { repeat: 'p in projects | orderBy: p.title' } }
+  .col-xs-10.col-xs-offset-1
+    .panel.panel-primary
+      .panel-heading{ ng: { mouseenter: 'head_hover=true',
+                            mouseleave: 'head_hover=false' }}
+        .calendar
+          .project-title
+            %span.glyphicon.glyphicon-calendar
+            %span{ ng: { hide: 'editedProjectId == p.id' } }
+              {{ p.title }}
+        %form{ ng: { submit: 'updateProject(projectForm)',
+               init: 'projectForm = {id: p.id, title: p.title}',
+               show: 'editedProjectId == p.id' }, role: 'form' }
+          .input-group.input-group-sm
+            %input.input-sm{ ng: { model: 'projectForm.title' }, class: 'form-control',
+                   id: 'project_title', name: 'title', required: true,
+                   placeholder: '{{ proj_title_new_placeholder | translate }}' }
+            %span.input-group-btn
+              %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
+                {{ 'save' | translate }}
+        .pull-right{ ng: { show: 'head_hover' } }
+          %span.glyphicon.glyphicon-pencil{ ng: { click: 'showEditProject(p)' } }
+          |
+          %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteProject(p)' } }
+      .panel-body

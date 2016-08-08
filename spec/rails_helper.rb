@@ -20,11 +20,11 @@ Capybara.javascript_driver = :webkit
 ActiveRecord::Migration.maintain_test_schema!
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{::Rails.root}/spec/factories"
 
   OmniAuth.config.test_mode = true
 
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!

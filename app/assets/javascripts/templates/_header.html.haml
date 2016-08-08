@@ -1,5 +1,5 @@
 .row
-  .header.col-xs-12
+  .col-xs-12
     .header-content
       %ul.pull-right
         %li{ ng: { show: '!user.id' } }
@@ -11,3 +11,9 @@
         %li{ ng: { show: 'user.id' } }
           %a{ ng: { click: 'signOut()' }, href: '#' }
             {{'sign_out' | translate}}
+.row
+  %h1.text-center.app-title
+    {{ 'simple_todo' | translate }}
+    %br
+    %span.text-center
+      {{ 'from_ruby' | translate }}

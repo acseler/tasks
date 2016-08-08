@@ -27,6 +27,7 @@ gem 'rails_12factor', group: :production
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
+gem 'active_model_serializers'
 gem 'bower-rails'
 gem 'angularjs-rails'
 gem 'angular-ui-router-rails'
@@ -37,7 +38,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 end
 
 group :development do

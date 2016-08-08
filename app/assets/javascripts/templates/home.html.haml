@@ -1,2 +1,19 @@
+%div{ ng: { include: "'_projects.html'" } }
 .row
-  %h2 Home
+  .col-xs-12{ ng: { hide: 'newProjectFlag' } }
+    %button.center-block{ ng: { click: 'showAddProject()' },
+                          class: 'btn btn-lg btn-primary' }
+      %span.glyphicon.glyphicon-plus{ aria: { hidden: true }  }
+      %span.add-todo-button
+        {{ 'add_todo' | translate }}
+  .col-xs-8.col-xs-offset-2{ ng: { show: 'newProjectFlag' } }
+    %form{ ng: { submit: 'addNewProject(project)',
+                 init: 'project = {}' }, role: 'form' }
+      .input-group
+        %input{ id: 'title', name: 'title', class: 'form-control',
+                placeholder: "{{ 'proj_title_placeholder' | translate }}",
+                ng: { model: 'project.title' }, required: true }
+        %span.input-group-btn
+          %button{ type: 'submit', class: 'btn btn-primary' }
+            {{ 'add' | translate }}
+          %button{ type: 'button', class: 'btn btn-default' }

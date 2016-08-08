@@ -7,8 +7,11 @@
 = stylesheet_link_tag    'application'
 = javascript_include_tag 'application'
 %body
+  %div{ id: 'loading-bar-container' }
   .main-wrap
-    %div.container{ 'ng-include': "'_header.html'" }
-    -#%toaster-container{ toaster: { options: "{'position-class': 'toast-top-left'}" }}
+    %div.container.header-height{ ng: { include: "'_header.html'" } }
     %toast
-    %div.container.main-view-container{'ui-view': true}
+    %div.main-height
+      .container.main-view-container{'ui-view': true}
+    %div.footer-height
+      .container{ ng: { include: "'_footer.html'" } }

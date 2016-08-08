@@ -22,6 +22,8 @@
 //= require angular-translate
 //= require ngtoast
 //= require angular-sanitize
+//= require angular-loading-bar
+//= require angular-resource
 //= require app
 //= require_tree ./templates
 //= require_tree ./controllers
