@@ -24,6 +24,8 @@
     $scope.initProjects()
     $scope.showAddProject = ->
       $scope.newProjectFlag = true
+    $scope.hideAddProject = ->
+      $scope.newProjectFlag = false
 
     $scope.addNewProject = (project) ->
       projectService.createProject(project).$promise.then(

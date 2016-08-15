@@ -7,5 +7,9 @@ FactoryGirl.define do
     factory :confirmed_user do
       confirmed_at Time.zone.now
     end
+
+    after(:create) do |user|
+      user.projects << FactoryGirl.create(:project)
+    end
   end
 end

@@ -10,10 +10,12 @@
     %form{ ng: { submit: 'addNewProject(project)',
                  init: 'project = {}' }, role: 'form' }
       .input-group
-        %input{ id: 'title', name: 'title', class: 'form-control',
+        %input{ id: 'title', name: 'title', class: 'form-control input-sm',
                 placeholder: "{{ 'proj_title_placeholder' | translate }}",
                 ng: { model: 'project.title' }, required: true }
-        %span.input-group-btn
-          %button{ type: 'submit', class: 'btn btn-primary' }
+        .input-group-btn
+          %button{ type: 'submit', class: 'btn btn-sm btn-default' }
             {{ 'add' | translate }}
-          %button{ type: 'button', class: 'btn btn-default' }
+          %button{ type: 'button', class: 'btn btn-sm btn-default',
+                   ng: { click: 'hideAddProject()' } }
+            {{ 'cancel' | translate }}

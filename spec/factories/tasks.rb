@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :task do
     sequence(:title) { |n| "Task #{n}" }
-    completed { [true, false].sample }
+    completed false
     project { FactoryGirl.create(:project) }
   end
 end

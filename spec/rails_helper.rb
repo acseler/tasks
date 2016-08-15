@@ -15,11 +15,13 @@ require 'support/capybara'
 require 'support/database_cleaner'
 require 'support/share_db_connection'
 require 'support/facebook_helper'
+require 'support/feature_helper'
 
 Capybara.javascript_driver = :webkit
 ActiveRecord::Migration.maintain_test_schema!
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 RSpec.configure do |config|
+  include FeatureHelper
   config.fixture_path = "#{::Rails.root}/spec/factories"
 
   OmniAuth.config.test_mode = true

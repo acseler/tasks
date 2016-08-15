@@ -27,6 +27,7 @@ feature 'Authentication' do
     check_sign_up_fields
     fill_in_sign_up_and_register
     expect(page).to have_content('Sign out')
+    sleep 1
   end
 
   scenario 'user can sign in with facebook', js: true do
@@ -35,6 +36,7 @@ feature 'Authentication' do
     check_sign_in_form
     click_link('Facebook')
     expect(page).to have_content('Sign out')
+    sleep 1
   end
 
   private
@@ -72,14 +74,5 @@ feature 'Authentication' do
   def sign_in_user_invalid_params
     sign_in_user(user.email, 'wrong password')
     expect(page).to have_content('Wrong email or password')
-  end
-
-  def sign_in_user(email, password)
-    within 'form' do
-      fill_in 'email', with: email
-      fill_in 'password', with: password
-    end
-    click_button('Sign in')
-    sleep 0.5
   end
 end
