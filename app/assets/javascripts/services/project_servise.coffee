@@ -13,7 +13,6 @@
       Project.query()
 
     updateProject: (project) ->
-      console.log(project)
       Project.update({id: project.id}, project)
 
     deleteProject: (project) ->

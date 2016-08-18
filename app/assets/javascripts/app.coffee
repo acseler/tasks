@@ -16,8 +16,7 @@
                  $locationProvider, $authProvider) ->
   $stateProvider.state('home',
     url: '/home'
-    templateUrl: 'home.html'
-    controller: 'ProjectCtrl'
+    template: '<todo-home></todo-home>'
     resolve:
       auth : ($auth, $state) ->
         $auth.validateUser().catch (err) ->

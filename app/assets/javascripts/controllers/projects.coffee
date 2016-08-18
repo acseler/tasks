@@ -3,16 +3,12 @@
 @todoList.controller 'ProjectCtrl', [
   '$scope'
   '$auth'
-  'ngToast'
+  'errorHandler'
   '$translate'
   'projectService'
-  ($scope, $auth, ngToast, $translate, projectService) ->
-    $scope.$on('auth:logout-success', (ev, user) ->
-      ngToast.create
-        className: 'info'
-        content: "<p>#{$translate.instant('good_bye')}</p>"
-    )
-    $scope.newProjectFlag = false
+  'taskService'
+  ($scope, $auth, errorHandler, $translate, projectService, taskService) ->
+
     $scope.editedProjectId = null
 
     $scope.initProjects = ->
@@ -22,10 +18,6 @@
       )
 
     $scope.initProjects()
-    $scope.showAddProject = ->
-      $scope.newProjectFlag = true
-    $scope.hideAddProject = ->
-      $scope.newProjectFlag = false
 
     $scope.addNewProject = (project) ->
       projectService.createProject(project).$promise.then(
@@ -34,7 +26,7 @@
           $scope.initProjects()
           $scope.project.title = ''
         (err) ->
-          handleError(err)
+          errorHandler.handleError(err)
       )
 
     $scope.showEditProject = (project) ->
@@ -52,7 +44,7 @@
           $scope.initProjects()
           $scope.hideEditProject()
         (err) ->
-          handleError(err)
+          errorHandler.handleError(err)
       )
 
     $scope.deleteProject = (p) ->
@@ -61,22 +53,6 @@
           (data) ->
             $scope.initProjects()
           (err) ->
-            handleError(err)
+            errorHandler.handleError(err)
         )
-
-    toTitleCase = (str) ->
-      str.replace(
-        /\w\S*/g
-        (txt) ->
-          txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-      )
-
-    handleError = (err) ->
-      error_messages = ''
-      angular.forEach err.data.errors, (errors, field) ->
-        error_messages += "<h4>#{toTitleCase(field)}</h4>
-                               <p>#{errors.join(', ')}</p>"
-      ngToast.create
-        className: 'danger'
-        content: error_messages
 ]

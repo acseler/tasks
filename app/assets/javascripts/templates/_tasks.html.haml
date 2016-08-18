@@ -1,0 +1,21 @@
+%form{ ng: { submit: 'createTask()' }, role: 'form', id: 'addTaskForm' }
+  .col-xs-12.task-form
+    %span.glyphicon.glyphicon-plus{ aria: { hidden: true }  }
+      .input-group.input-group-sm
+        %input.input-sm{ ng: { model: 'taskForm.title' }, class: 'form-control',
+                   id: 'project_title', name: 'title', required: true,
+                   placeholder: '{{ proj_title_new_placeholder | translate }}' }
+          %span.input-group-btn
+            %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
+              {{ 'add_task' | translate }}
+.row
+  .col-xs-12
+    .each-task{ ng: { repeat: 'task in tasks' } }
+      .col-xs-1
+        %input{ type: 'checkbox', ng: { model: 'task.completed' } }
+      .col-xs-9
+        %p
+          {{task.title}}
+      .col-xs-2
+    -#%task-template{ ng: { repeat: 'task in tasks' }, task: 'task' }
+

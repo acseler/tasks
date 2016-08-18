@@ -1,0 +1,38 @@
+.panel > .panel-body {
+  padding: 0;
+  .btn-primary {
+    color: #fff;
+    background-color: #69a081;
+    border-color: #447557;
+  }
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #69a081;
+    border-color: #447557;
+  }
+
+  .task-form {
+    display: inline-block;
+    background-color: #cfcfcf;
+  }
+
+  span.glyphicon.glyphicon-plus {
+    color: #69a081;
+    font-size: 25px;
+  }
+}
+
+.each-task {
+  display: flex;
+  border-bottom: 1px solid #c4c4c4;
+  .col-xs-1 {
+    border-right: 1px solid #efdadf;
+    margin-right: 4px ;
+  }
+  .col-xs-9 {
+    border-left: 1px solid #efdadf;
+    border-right: 1px solid #c4c4c4;
+  }
+}
+
+

@@ -29,7 +29,6 @@ feature 'Project' do
     check_new_project(project.title)
     check_project_edit_fields
     check_new_project(new_title)
-    sleep 1
   end
 
   scenario 'user can delete project', js: true do
@@ -48,7 +47,7 @@ feature 'Project' do
   end
 
   def fill_in_project_and_create
-    within 'form' do
+    within '#projectForm' do
       fill_in 'title', with: 'New project'
     end
     click_button('Add')
@@ -66,7 +65,7 @@ feature 'Project' do
     find('.pull-right .glyphicon.glyphicon-pencil').click
     expect(page).to have_css('.input-group .form-control')
     expect(page).to have_css('.input-group span.input-group-btn button', text: 'Save')
-    within 'form' do
+    within '#projectEditForm' do
       fill_in 'project_title', with: new_title
     end
     click_button('Save')
@@ -75,8 +74,8 @@ feature 'Project' do
   def check_delete_project
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: false)
     find('.panel-heading').hover
-    expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: true)
     sleep 1
+    expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: true)
     accept_confirm do
       find('.pull-right .glyphicon.glyphicon-trash').click
       sleep 1

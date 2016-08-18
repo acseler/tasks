@@ -19,6 +19,7 @@ translations =
   save: 'Save'
   delete_project: 'Do you realy want to remove this project?'
   cancel: 'Cancel'
+  add_task: 'Add Task'
 
 @todoList.config [
   '$translateProvider'

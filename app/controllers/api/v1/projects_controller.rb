@@ -1,10 +1,15 @@
 module Api
   module V1
     class ProjectsController < ApplicationController
+      load_and_authorize_resource
       respond_to :json
 
       def index
-        respond_with user_projects
+        respond_with @projects
+      end
+
+      def show
+        respond_with @project
       end
 
       def create
@@ -12,11 +17,11 @@ module Api
       end
 
       def update
-        respond_with update_project(project_params)
+        respond_with @project.update(project_params)
       end
 
       def destroy
-        respond_with user_projects.destroy(project_params[:id])
+        respond_with @project.destroy
       end
 
       private

@@ -1,4 +1,4 @@
-%div{ ng: { include: "'_projects.html'" } }
+%todo-projects
 .row
   .col-xs-12{ ng: { hide: 'newProjectFlag' } }
     %button.center-block{ ng: { click: 'showAddProject()' },
@@ -8,7 +8,8 @@
         {{ 'add_todo' | translate }}
   .col-xs-8.col-xs-offset-2{ ng: { show: 'newProjectFlag' } }
     %form{ ng: { submit: 'addNewProject(project)',
-                 init: 'project = {}' }, role: 'form' }
+                 init: 'project = {}' }, role: 'form',
+                 id: 'projectForm' }
       .input-group
         %input{ id: 'title', name: 'title', class: 'form-control input-sm',
                 placeholder: "{{ 'proj_title_placeholder' | translate }}",

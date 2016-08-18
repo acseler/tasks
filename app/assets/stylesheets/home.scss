@@ -76,6 +76,7 @@ body {
   font-weight: bold;
   line-height: 0.7;
   padding-top: 5px;
+  padding-bottom: 20px;
   span {
     font-size: 18px;
     font-weight: 100;
@@ -88,11 +89,11 @@ body {
 }
 
 .header-height {
-  height: 15vh;
+  height: 18vh;
 }
 
 .main-height {
-  height: 80vh;
+  height: 78vh;
   min-height: 80vh;
   min-width: 100%;
 }
@@ -115,7 +116,20 @@ body {
   }
 }
 
+.panel.panel-primary  {
+  border-radius: 0 0 13px 13px;
+
+
+  .panel-heading {
+    color: #fff;
+    background-color: #4471b2;
+    border-color: #4471b2;
+  }
+}
+
 .panel-heading {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   .glyphicon.glyphicon-calendar {
     font-size: 16px;
   }
@@ -136,5 +150,14 @@ body {
   display: inline-block;
   min-height: 33px;
 }
+
+.row > .col-xs-12 > .btn.btn-lg.btn-primary {
+  border-radius: 0;
+  color: #fff;
+  background-color: #4471b2;
+  border-color: #4471b2;
+}
+
+
 
 
