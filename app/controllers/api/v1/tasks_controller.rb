@@ -13,6 +13,14 @@ module Api
         respond_with @tasks
       end
 
+      def update
+        respond_with @task.update(task_params)
+      end
+
+      def destroy
+        respond_with @task.destroy
+      end
+
       private
 
       def task_params

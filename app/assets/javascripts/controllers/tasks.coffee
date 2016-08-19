@@ -18,6 +18,10 @@
           $scope.tasks = data
       )
 
+    $rootScope.$on('taskUpdatedEvent', ->
+      $scope.initTasks()
+    )
+
     $scope.createTask = () ->
       taskService.createTask($scope.taskForm).$promise.then(
         (data) ->

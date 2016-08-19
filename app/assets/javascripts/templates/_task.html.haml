@@ -1,1 +1,19 @@
-
+.each-task{ ng: { mouseenter: 'task_hover=true',
+                   mouseleave: 'task_hover=false' }}
+  .col-xs-1
+    %input{ type: 'checkbox', ng: { model: 'task.completed' } }
+  .col-xs-9
+    %p{ ng: { hide: 'taskEditFlag' } }
+      {{task.title}}
+    %form{ ng: { submit: 'updateTaskTitle(task)', show: 'taskEditFlag' },
+           role: 'form', id: 'update_task_title' }
+      .input-group-sm
+        %input.input-sm{ type: 'text', class: 'form-control', name: 'task_title',
+                         ng: { model: 'taskTitleEdit' } }
+        .input-group-btn
+          %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
+            {{ 'save' | translate }}
+  .col-xs-2
+    .task-buttons{ ng: { show: 'task_hover' } }
+      %span.glyphicon.glyphicon-pencil{ ng: { click: 'showTaskEdit()' } }
+      %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteTask(task)' } }

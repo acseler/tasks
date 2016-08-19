@@ -10,12 +10,5 @@
               {{ 'add_task' | translate }}
 .row
   .col-xs-12
-    .each-task{ ng: { repeat: 'task in tasks' } }
-      .col-xs-1
-        %input{ type: 'checkbox', ng: { model: 'task.completed' } }
-      .col-xs-9
-        %p
-          {{task.title}}
-      .col-xs-2
-    -#%task-template{ ng: { repeat: 'task in tasks' }, task: 'task' }
+    %task-template{ ng: { repeat: 'task in tasks' }, task: 'task' }
 

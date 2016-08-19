@@ -18,6 +18,7 @@ translations =
   add: 'Add'
   save: 'Save'
   delete_project: 'Do you realy want to remove this project?'
+  delete_task: 'Do you realy want to remove this task?'
   cancel: 'Cancel'
   add_task: 'Add Task'
 
