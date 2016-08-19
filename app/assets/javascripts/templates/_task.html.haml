@@ -1,7 +1,8 @@
 .each-task{ ng: { mouseenter: 'task_hover=true',
                    mouseleave: 'task_hover=false' }}
   .col-xs-1
-    %input{ type: 'checkbox', ng: { model: 'task.completed' } }
+    %input{ type: 'checkbox', name: 'completed',
+            ng: { model: 'task.completed', click: 'updateTask(task)' } }
   .col-xs-9
     %p{ ng: { hide: 'taskEditFlag' } }
       {{task.title}}

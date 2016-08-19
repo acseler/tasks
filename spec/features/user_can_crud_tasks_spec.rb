@@ -4,10 +4,10 @@ feature 'Task' do
 
   let!(:user) { FactoryGirl.create(:confirmed_user) }
   let!(:project) { user.projects.last }
-  let(:tasks_count) { project.tasks.count }
   let!(:task) { FactoryGirl.create(:task, project: project) }
   let(:task_title) { 'Task title 1' }
   let(:new_task_title) { 'Task title updated' }
+  let(:checkbox_selector) { "input[name='completed']" }
 
   scenario 'user can add tasks to project', js: true do
     sign_in
@@ -18,15 +18,21 @@ feature 'Task' do
 
   scenario 'user can update tasks', js: true do
     sign_in
-    check_add_task_form
+    check_tasks
     check_edit_task_title
     fill_in_and_update_task
   end
 
   scenario 'user can delete tasks', js: true do
     sign_in
-    check_add_task_form
+    check_tasks
+    check_delete_button
+  end
 
+  scenario 'user can mark a task as done', js: true do
+    sign_in
+    check_tasks
+    check_complete_tasks
   end
 
   private
@@ -38,6 +44,10 @@ feature 'Task' do
     expect(page).to have_css('.input-group-btn button.btn.btn-sm.btn-primary',
                              text: 'Add Task')
     expect(page).to have_content(task.title)
+  end
+
+  def check_tasks
+    expect(page).to have_css('.each-task', count: 1)
   end
 
   def check_edit_task_title
@@ -58,12 +68,22 @@ feature 'Task' do
     find('.each-task p', text: task.title).hover
     expect(page).to have_css('.each-task .glyphicon.glyphicon-trash',
                              visible: true)
-    expect(page).to have_css('.each-task', count: tasks_count)
+    expect(page).to have_css('.each-task', count: 1)
     accept_confirm do
       find('.each-task .glyphicon.glyphicon-trash').click
       sleep 1
     end
-    expect(page).to have_css('.each-task', count: tasks_count)
+    expect(page).to have_css('.each-task', count: 0)
+  end
+
+  def check_complete_tasks
+    checkbox = find(checkbox_selector)
+    expect(page).to have_selector(checkbox_selector)
+    expect(task.completed).to be false
+    expect(checkbox.checked?).to be false
+    check('completed')
+    sleep 1
+    expect(Task.find(task.id).completed).to be true
   end
 
   def fill_in_and_add_task
