@@ -21,18 +21,26 @@
     font-size: 25px;
   }
 }
+.project-tasks {
+}
 
 .each-task {
+  border-collapse: collapse;
+  background-color: #fafafa;
+  border: 1px solid #c4c4c4;
   display: flex;
-  border-bottom: 1px solid #c4c4c4;
   .col-xs-1 {
     border-right: 1px solid #efdadf;
-    margin-right: 4px ;
+    margin-right: 4px;
   }
   .col-xs-9 {
     border-left: 1px solid #efdadf;
     border-right: 1px solid #c4c4c4;
   }
+  .col-xs-2 {
+  }
 }
+
+
 
 

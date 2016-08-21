@@ -30,4 +30,13 @@
         (err) ->
           errorHandler.handleError(err)
       )
+
+    $scope.sortableOptions =
+      stop: (e, ui) ->
+        $scope.tasks.map( (t, i)->
+          unless t.priority == i
+            t.priority = i
+            taskService.updateTask(t)
+        )
+      axis: 'y'
 ]

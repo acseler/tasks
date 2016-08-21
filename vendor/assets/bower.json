@@ -8,6 +8,8 @@
     "angular-translate": "latest",
     "ngtoast": "latest",
     "angular-cookies": "latest",
-    "angular-loading-bar": "latest"
+    "angular-loading-bar": "latest",
+    "jquery-ui": "latest",
+    "angular-ui-sortable": "latest"
   }
 }

@@ -1,16 +1,16 @@
 .each-task{ ng: { mouseenter: 'task_hover=true',
-                   mouseleave: 'task_hover=false' }}
+                  mouseleave: 'task_hover=false' } }
   .col-xs-1
     %input{ type: 'checkbox', name: 'completed',
-            ng: { model: 'task.completed', click: 'updateTask(task)' } }
+              ng: { model: 'task.completed', click: 'updateTask(task)' } }
   .col-xs-9
     %p{ ng: { hide: 'taskEditFlag' } }
       {{task.title}}
     %form{ ng: { submit: 'updateTaskTitle(task)', show: 'taskEditFlag' },
-           role: 'form', id: 'update_task_title' }
+             role: 'form', id: 'update_task_title' }
       .input-group-sm
         %input.input-sm{ type: 'text', class: 'form-control', name: 'task_title',
-                         ng: { model: 'taskTitleEdit' } }
+                           ng: { model: 'taskTitleEdit' } }
         .input-group-btn
           %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
             {{ 'save' | translate }}

@@ -9,6 +9,7 @@
             %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
               {{ 'add_task' | translate }}
 .row
-  .col-xs-12
-    %task-template{ ng: { repeat: 'task in tasks' }, task: 'task' }
+  .col-xs-12{ ui: { sortable: 'sortableOptions' }, ng: { model: 'tasks' } }
+    .project-tasks{ ng: { repeat: "task in tasks | orderBy : 'priority'" } }
+      .task-template{ task: 'task' }
 

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require angular/angular
 //= require angular-animate/angular-animate
 //= require angular-ui-router
@@ -24,6 +25,7 @@
 //= require angular-sanitize
 //= require angular-loading-bar
 //= require angular-resource
+//= require angular-ui-sortable
 //= require app
 //= require_tree ./templates
 //= require_tree ./controllers

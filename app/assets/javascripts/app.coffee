@@ -10,6 +10,7 @@
   'ngCookies'
   'angular-loading-bar'
   'ngResource'
+  'ui.sortable'
 ])
 
 @todoList.config ($stateProvider, $urlRouterProvider,
