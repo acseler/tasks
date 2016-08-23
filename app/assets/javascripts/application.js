@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require moment
+//= require bootstrap
 //= require angular/angular
 //= require angular-animate/angular-animate
 //= require angular-ui-router
@@ -26,6 +28,8 @@
 //= require angular-loading-bar
 //= require angular-resource
 //= require angular-ui-sortable
+//= require angular-bootstrap-datetimepicker/src/js/datetimepicker
+//= require angular-bootstrap-datetimepicker/src/js/datetimepicker.templates
 //= require app
 //= require_tree ./templates
 //= require_tree ./controllers

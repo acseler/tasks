@@ -35,4 +35,11 @@
         (err) ->
           errorHandler.handleError(err)
       )
+
+    $scope.assignDeadline = ->
+      $scope.task_hover = false
+      $scope.deadlineEdit = false
+      console.log($scope.task)
+      $scope.updateTask($scope.task)
+
 ]

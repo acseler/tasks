@@ -6,6 +6,7 @@ FactoryGirl.define do
     trait :empty_priority do
       priority nil
     end
+    deadline { Time.now }
     project { FactoryGirl.create(:project) }
   end
 end

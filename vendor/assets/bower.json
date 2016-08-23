@@ -10,6 +10,7 @@
     "angular-cookies": "latest",
     "angular-loading-bar": "latest",
     "jquery-ui": "latest",
-    "angular-ui-sortable": "latest"
+    "angular-ui-sortable": "latest",
+    "angular-bootstrap-datetimepicker": "latest"
   }
 }

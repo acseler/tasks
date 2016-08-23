@@ -24,7 +24,7 @@ module Api
       private
 
       def task_params
-        params.permit(:title, :completed, :project_id, :priority)
+        params.permit(:title, :completed, :project_id, :priority, :deadline)
       end
     end
   end

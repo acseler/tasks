@@ -102,6 +102,6 @@ feature 'Task' do
   end
 
   def check_new_task_adding
-    expect(page).to have_css('.each-task .col-xs-9 p', text: task_title)
+    expect(page).to have_css('.each-task .col-xs-8 p', text: task_title)
   end
 end

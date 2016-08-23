@@ -11,6 +11,7 @@
   'angular-loading-bar'
   'ngResource'
   'ui.sortable'
+  'ui.bootstrap.datetimepicker'
 ])
 
 @todoList.config ($stateProvider, $urlRouterProvider,
