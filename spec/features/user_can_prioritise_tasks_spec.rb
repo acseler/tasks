@@ -27,7 +27,7 @@ feature 'Task prioritise' do
     tasks.each do |task|
       expect(task.priority).to be_nil
     end
-    task_to_prioritise = page.find('.project-tasks p', text: task_three.title)
+    task_to_prioritise = page.find('.task-template p', text: task_three.title)
     target = page.find('a', text: 'Sign out')
     task_to_prioritise.drag_to(target)
     sleep 2

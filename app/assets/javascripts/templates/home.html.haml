@@ -7,16 +7,4 @@
       %span.add-todo-button
         {{ 'add_todo' | translate }}
   .col-xs-8.col-xs-offset-2{ ng: { show: 'newProjectFlag' } }
-    %form{ ng: { submit: 'addNewProject(project)',
-                 init: 'project = {}' }, role: 'form',
-                 id: 'projectForm' }
-      .input-group
-        %input{ id: 'title', name: 'title', class: 'form-control input-sm',
-                placeholder: "{{ 'proj_title_placeholder' | translate }}",
-                ng: { model: 'project.title' }, required: true }
-        .input-group-btn
-          %button{ type: 'submit', class: 'btn btn-sm btn-default' }
-            {{ 'add' | translate }}
-          %button{ type: 'button', class: 'btn btn-sm btn-default',
-                   ng: { click: 'hideAddProject()' } }
-            {{ 'cancel' | translate }}
+    %ng-include{ src: "'forms/add_new_project_form.html'" }

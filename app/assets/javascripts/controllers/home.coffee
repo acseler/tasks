@@ -10,6 +10,8 @@
         content: "<p>#{$translate.instant('good_bye')}</p>"
     )
 
+    $scope.project = {}
+
     $scope.newProjectFlag = false
     $scope.showAddProject = ->
       $scope.newProjectFlag = true

@@ -7,13 +7,36 @@
   'errorHandler'
   'taskService'
   '$rootScope'
-  ($scope, ngToast, $translate, errorHandler, taskService, $rootScope) ->
+  'commentService'
+  ($scope, ngToast, $translate, errorHandler, taskService, $rootScope, commentService) ->
     $scope.taskEditFlag = false
+    $scope.showComments = false
 
-    $scope.updateTaskTitle = (task) ->
-      task.title = $scope.taskTitleEdit
-      $scope.updateTask(task)
+    $scope.createComment = (taskId, message) ->
+      commentService.createComment(taskId, message).$promise.then(
+        (data) ->
+          $scope.initComments()
+          $scope.commentAddFlag = false
+          $scope.message = ''
+        (err) ->
+          errorHandler.handleError(err)
+      )
 
+    $scope.updateTaskTitle = (task, taskTitle) ->
+      task.title = taskTitle
+      $scope.updateTask($scope.task)
+
+    $scope.initComments = ->
+      commentService.getComments($scope.task.id).$promise.then(
+        (data) ->
+          $scope.comments = data
+      )
+
+    $rootScope.$on('commentUpdatedEvent', ->
+      $scope.initComments()
+    )
+
+    $scope.initComments()
 
     $scope.deleteTask = (task) ->
       if confirm($translate.instant('delete_task'))
@@ -39,7 +62,6 @@
     $scope.assignDeadline = ->
       $scope.task_hover = false
       $scope.deadlineEdit = false
-      console.log($scope.task)
       $scope.updateTask($scope.task)
 
 ]

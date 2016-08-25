@@ -1,18 +1,31 @@
 .panel > .panel-body {
   padding: 0;
   .btn-primary {
-    color: #fff;
-    background-color: #69a081;
-    border-color: #447557;
+    border-color: #6eb991;
+    background-color: #94CBAE; background-image: -webkit-gradient(linear, left top, left bottom, from(#94CBAE), to(#508767));
+    background-image: -webkit-linear-gradient(top, #94CBAE, #508767);
+    background-image: -moz-linear-gradient(top, #94CBAE, #508767);
+    background-image: -ms-linear-gradient(top, #94CBAE, #508767);
+    background-image: -o-linear-gradient(top, #94CBAE, #508767);
+    background-image: linear-gradient(to bottom, #94CBAE, #508767);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#94CBAE, endColorstr=#508767);
   }
   .btn-primary:hover {
-    color: #fff;
-    background-color: #69a081;
-    border-color: #447557;
+    border-color: #51a87a;
+    background-color: #72ba94; background-image: -webkit-gradient(linear, left top, left bottom, from(#72ba94), to(#3d674f));
+    background-image: -webkit-linear-gradient(top, #72ba94, #3d674f);
+    background-image: -moz-linear-gradient(top, #72ba94, #3d674f);
+    background-image: -ms-linear-gradient(top, #72ba94, #3d674f);
+    background-image: -o-linear-gradient(top, #72ba94, #3d674f);
+    background-image: linear-gradient(to bottom, #72ba94, #3d674f);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#72ba94, endColorstr=#3d674f);
+  }
+
+  project-tasks > ng-include {
+    .col-xs-12 {
+      padding: 10px 10px 10px 0;
+    }
   }
 
   .task-form {
-    display: inline-block;
     background-color: #cfcfcf;
   }
 
@@ -20,14 +33,18 @@
     color: #69a081;
     font-size: 25px;
   }
-}
-.project-tasks {
+
+  .row .col-xs-12 .each-task:last-child {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
 }
 
 .each-task {
   border-collapse: collapse;
   background-color: #fafafa;
   border: 1px solid #c4c4c4;
+  margin-top: -1px;
   display: flex;
   .col-xs-1 {
     border-right: 1px solid #efdadf;
@@ -38,7 +55,31 @@
     border-right: 1px solid #c4c4c4;
   }
   .col-xs-3 {
+    ul.dropdown-menu {
+      top: 20px;
+    }
   }
+
+  form.col-xs-12 {
+    textarea {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    button {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+}
+
+.single-head {
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.not-single-head {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 

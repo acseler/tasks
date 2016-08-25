@@ -1,0 +1,7 @@
+.col-xs-12
+  .thumbnail
+    %p.comment
+      %span
+        {{comment.message}}
+    .pull-right
+      %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteComment()' } }

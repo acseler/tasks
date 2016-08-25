@@ -8,17 +8,7 @@
             %span.glyphicon.glyphicon-calendar
             %span{ ng: { hide: 'editedProjectId == p.id' } }
               {{ p.title }}
-        %form{ ng: { submit: 'updateProject(projectForm)',
-               init: 'projectForm = {id: p.id, title: p.title}',
-               show: 'editedProjectId == p.id' }, role: 'form',
-               id: 'projectEditForm' }
-          .input-group.input-group-sm
-            %input.input-sm{ ng: { model: 'projectForm.title' }, class: 'form-control',
-                   id: 'project_title', name: 'title', required: true,
-                   placeholder: '{{ proj_title_new_placeholder | translate }}' }
-            %span.input-group-btn
-              %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
-                {{ 'save' | translate }}
+        %ng-include{ src: "'forms/update_project_title.html'" }
         .pull-right{ ng: { show: 'head_hover' } }
           %span.glyphicon.glyphicon-pencil{ ng: { click: 'showEditProject(p)' } }
           |

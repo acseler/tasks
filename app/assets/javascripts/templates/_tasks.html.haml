@@ -1,15 +1,4 @@
-%form{ ng: { submit: 'createTask()' }, role: 'form', id: 'addTaskForm' }
-  .col-xs-12.task-form
-    %span.glyphicon.glyphicon-plus{ aria: { hidden: true }  }
-      .input-group.input-group-sm
-        %input.input-sm{ ng: { model: 'taskForm.title' }, class: 'form-control',
-                   id: 'project_title', name: 'title', required: true,
-                   placeholder: '{{ proj_title_new_placeholder | translate }}' }
-          %span.input-group-btn
-            %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
-              {{ 'add_task' | translate }}
+%ng-include{ src: "'forms/create_task_form.html'"}
 .row
   .col-xs-12{ ui: { sortable: 'sortableOptions' }, ng: { model: 'tasks' } }
-    .project-tasks{ ng: { repeat: "task in tasks | orderBy : 'priority'" } }
-      .task-template{ task: 'task' }
-
+    .task-template{ ng: { repeat: "task in tasks | orderBy : 'priority'" }, task: 'task' }

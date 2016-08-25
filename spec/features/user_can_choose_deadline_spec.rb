@@ -26,9 +26,10 @@ feature 'Deadline' do
     expect(page).to have_css('.each-task .glyphicon.glyphicon-calendar',
                              visible: true)
     find('.each-task .glyphicon.glyphicon-calendar').click
-    expect(page).to have_css('ul.dropdown-menu td.day')
-    find('ul.dropdown-menu td.day', text: '11').click
-    expect(page).not_to have_css('ul.dropdown-menu td.day')
+    expect(page).to have_css('.task-buttons .dropdown-menu td.day')
+    find('.dropdown-menu td.day', text: '11').click
+    sleep 1
+    expect(page).not_to have_css('.dropdown-menu td.day')
     expect(page).to have_css('span.deadline', text: Task.find(task.id).deadline)
   end
 end

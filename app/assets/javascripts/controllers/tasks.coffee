@@ -12,6 +12,9 @@
       project_id: $scope.project
       completed: false
 
+    $scope.emptyTasks = ->
+      $scope.tasks.length == 0 && 'single-head' || 'non-single-head'
+
     $scope.initTasks = ->
       taskService.getTasks($scope.project).$promise.then(
         (data) ->

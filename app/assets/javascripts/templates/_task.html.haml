@@ -1,6 +1,5 @@
-.each-task{ ng: { init: 'deadlineEdit = false',
-                  mouseenter: 'task_hover = true',
-                  mouseleave: 'task_hover = deadlineEdit' } }
+.each-task{ ng: { mouseenter: 'task_hover = true',
+                  mouseleave: 'task_hover = false' } }
   .col-xs-1
     %input{ type: 'checkbox', name: 'completed',
               ng: { model: 'task.completed', click: 'updateTask(task)' } }
@@ -9,23 +8,38 @@
       {{task.title}}
       %span.deadline
         {{task.deadline | date:'yyyy-MM-dd'}}
-    %form{ ng: { submit: 'updateTaskTitle(task)', show: 'taskEditFlag' },
-             role: 'form', id: 'update_task_title' }
-      .input-group-sm
-        %input.input-sm{ type: 'text', class: 'form-control', name: 'task_title',
-                           ng: { model: 'taskTitleEdit' } }
-        .input-group-btn
-          %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
+    %ng-include{ src: "'forms/update_task_title_form.html'" }
+    %div{ ng: { show: 'showComments' } }
+      .empty-comments{ ng: { hide: 'comments.length > 0' } }
+        %span
+          {{ 'no_comments' | translate }}
+      .row
+        %form.col-xs-12{ ng: { submit: 'createComment(task.id, message)',
+                         show: 'commentAddFlag' },
+                         role: 'form', id: 'add_comment_form' }
+          %textarea{ class: 'form-control', name: 'message',
+                     ng: { model: 'message' }, rows: '2',
+                     placeholder: "{{ 'enter_comment' | translate }}" }
+          %button.col-xs-12{ role: 'submit', class: 'btn btn-sm btn-primary',
+                             ng: { click: 'commentAddFlag = false' }}
             {{ 'save' | translate }}
+        .col-xs-12
+          %a{ href: '#', ng: { click: 'commentAddFlag = !commentAddFlag' } }
+            %span
+              {{ 'add_comment' | translate }}
+        %comment-template{ ng: { repeat: 'comment in comments' }, comment: 'comment' }
   .col-xs-3
     .task-buttons{ ng: { show: 'task_hover' } }
       %span.glyphicon.glyphicon-pencil{ ng: { click: 'showTaskEdit()' } }
       %span{ role: 'button',  data: { toggle: 'dropdown'},
              class: 'dropdown-toggle glyphicon glyphicon-calendar',
-             ng: { click: 'deadlineEdit = !deadlineEdit' } }
+              }
       %ul.dropdown-menu
         %datetimepicker{ ng: { model: 'task.deadline' },
-                         'datetimepicker-neutral-timezone': true,
-                         datetimepicker: { config: "{dropdownSelector: '.dropdown-toggle', minView: 'day'}" },
-                         'on-set-time': 'assignDeadline()' }
+                               'datetimepicker-neutral-timezone': true,
+                               datetimepicker: { config: "{dropdownSelector: '.dropdown-toggle', minView: 'day'}" },
+                               'on-set-time': 'assignDeadline()' }
+      %span.glyphicon.glyphicon-comment{ ng: { click: 'showComments = !showComments' } }
       %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteTask(task)' } }
+
+

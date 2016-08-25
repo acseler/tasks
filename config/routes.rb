@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       shallow do
         resources :projects do
-          resources :tasks
+          resources :tasks do
+            resources :comments
+          end
         end
       end
     end

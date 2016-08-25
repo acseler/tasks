@@ -91,6 +91,7 @@ feature 'Task' do
       fill_in 'title', with: task_title
     end
     click_button('Add Task')
+    sleep 1
   end
 
   def fill_in_and_update_task

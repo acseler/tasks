@@ -21,6 +21,9 @@ translations =
   delete_task: 'Do you realy want to remove this task?'
   cancel: 'Cancel'
   add_task: 'Add Task'
+  no_comments: 'You have no comments yet.'
+  add_comment: 'Add Comment'
+  enter_comment: 'Enter comment for task'
 
 @todoList.config [
   '$translateProvider'

@@ -133,7 +133,7 @@ body {
   .glyphicon.glyphicon-calendar {
     font-size: 16px;
   }
-  form {
+  ng-include form {
     max-width: 380px;
     display: inline-block;
     vertical-align: middle;

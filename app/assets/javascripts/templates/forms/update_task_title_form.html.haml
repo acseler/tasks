@@ -1,0 +1,9 @@
+.row
+  %form.col-xs-12{ ng: { submit: 'updateTaskTitle(task, taskTitleEdit)', show: 'taskEditFlag' },
+               role: 'form', id: 'update_task_title' }
+    .input-group.input-group-sm
+      %input.input-sm{ type: 'text', class: 'form-control', name: 'task_title',
+                             ng: { model: 'taskTitleEdit' } }
+      %span.input-group-btn
+        %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
+          {{ 'save' | translate }}
