@@ -8,19 +8,38 @@
   'taskService'
   '$rootScope'
   'commentService'
-  ($scope, ngToast, $translate, errorHandler, taskService, $rootScope, commentService) ->
+  'Upload'
+  ($scope, ngToast, $translate, errorHandler, taskService, $rootScope, commentService, Upload) ->
     $scope.taskEditFlag = false
     $scope.showComments = false
 
     $scope.createComment = (taskId, message) ->
       commentService.createComment(taskId, message).$promise.then(
         (data) ->
-          $scope.initComments()
-          $scope.commentAddFlag = false
-          $scope.message = ''
+          if ($scope.files)
+            for file in $scope.files
+              Upload.upload(
+                  url: "api/v1/comments/#{data.id}/attachments"
+                  method: 'POST'
+                  file: file
+                ).success(
+                  (data) ->
+                    $scope.initComments()
+                    $scope.commentAddFlag = false
+                    $scope.message = ''
+                    $scope.files = null
+                ).error(
+                  (err) ->
+                    errorHandler.handleError(err)
+              )
+          else
+            $scope.initComments()
+            $scope.commentAddFlag = false
+            $scope.message = ''
         (err) ->
           errorHandler.handleError(err)
       )
+
 
     $scope.updateTaskTitle = (task, taskTitle) ->
       task.title = taskTitle
@@ -64,4 +83,7 @@
       $scope.deadlineEdit = false
       $scope.updateTask($scope.task)
 
+    $scope.deleteFile = (index) ->
+      $scope.files.splice(index, 1)
+      $scope.files
 ]

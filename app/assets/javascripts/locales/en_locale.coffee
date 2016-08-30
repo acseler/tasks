@@ -24,6 +24,7 @@ translations =
   no_comments: 'You have no comments yet.'
   add_comment: 'Add Comment'
   enter_comment: 'Enter comment for task'
+  attach_files: 'Attach files'
 
 @todoList.config [
   '$translateProvider'

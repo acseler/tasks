@@ -12,6 +12,7 @@
   'ngResource'
   'ui.sortable'
   'ui.bootstrap.datetimepicker'
+  'ngFileUpload'
 ])
 
 @todoList.config ($stateProvider, $urlRouterProvider,
@@ -43,7 +44,7 @@
     requireBase: false
 
   $authProvider.configure
-    apiUrl: '/api'
+    apiUrl: 'api/v1'
     omniauthWindowType: 'sameWindow'
     authProviderPaths:
       facebook: '/auth/facebook'

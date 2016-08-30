@@ -30,6 +30,7 @@
 //= require angular-ui-sortable
 //= require angular-bootstrap-datetimepicker/src/js/datetimepicker
 //= require angular-bootstrap-datetimepicker/src/js/datetimepicker.templates
+//= require ng-file-upload
 //= require app
 //= require_tree ./templates
 //= require_tree ./controllers

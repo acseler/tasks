@@ -1,13 +1,13 @@
 .col-xs-12 {
-  .thumbnail {
-    display: flex;
-    justify-content: space-between;
+  .comment-wrap {
+    border: 1px solid #d3d4cb;
+    border-radius: 3px;
+    padding: 5px;
     margin-bottom: 7px;
-    .btn.btn-default {
-      height: 20px;
-      max-height: 20px;
-      max-width: 20px;
-      width: 20px;
+    span.glyphicon.glyphicon-trash {
+      position: absolute;
+      right: 20px;
+      top: 8px;
     }
   }
 
@@ -15,6 +15,10 @@
     margin-bottom: 0;
     word-wrap: break-word;
     overflow: hidden;
+  }
+
+  textarea {
+    resize: none;
   }
 }
 

@@ -13,6 +13,7 @@
       "jquery-ui": "latest",
       "angular-ui-sortable": "latest",
       "angular-bootstrap-datetimepicker": "latest"
+      "ng-file-upload": "latest"
     }
   },
   "vendor": {

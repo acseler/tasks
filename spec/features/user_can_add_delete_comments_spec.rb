@@ -5,14 +5,15 @@ feature 'Comments' do
   let!(:user) { FactoryGirl.create(:confirmed_user) }
   let!(:project) { user.projects.last }
   let!(:task) { FactoryGirl.create(:task, project: project) }
+  let!(:comment) { task.comments.last }
   let(:comment_attr) { FactoryGirl.attributes_for(:comment) }
 
   scenario 'user can add comments', js: true do
     sign_in
     check_tasks
     check_comment_button
-    add_comment_and_check
     delete_and_check
+    add_comment_and_check
   end
 
   private
@@ -29,8 +30,6 @@ feature 'Comments' do
                              visible: true)
     find('.each-task .glyphicon.glyphicon-comment').click
     expect(page).to have_css('.col-xs-12 a', text: 'Add Comment')
-    expect(page).to have_css('.empty-comments span',
-                             text: 'You have no comments yet.')
   end
 
   def add_comment_and_check
@@ -42,18 +41,18 @@ feature 'Comments' do
     expect(page).to have_css('form#add_comment_form', visible: false)
     expect(page).not_to have_css('.empty-comments span',
                              text: 'You have no comments yet.')
-    expect(page).to have_css('.thumbnail p.comment',
+    expect(page).to have_css('.comment-wrap p.comment',
                              text: comment_attr[:message])
   end
 
   def delete_and_check
-    expect(page).to have_css('.thumbnail .pull-right span.glyphicon-trash')
-    find('.thumbnail .pull-right span.glyphicon-trash').click
+    expect(page).to have_css(".comment-wrap span.glyphicon-trash")
+    find(".comment-wrap span.glyphicon-trash").click
     sleep 1
     expect(page).to have_css('.empty-comments span',
                                  text: 'You have no comments yet.')
-    expect(page).not_to have_css('.thumbnail p.comment',
-                             text: comment_attr[:message])
+    expect(page).not_to have_css('.comment-wrap p.comment',
+                             text: comment.message)
   end
 
   def fill_in_comment_form

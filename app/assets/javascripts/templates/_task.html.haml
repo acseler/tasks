@@ -14,20 +14,27 @@
         %span
           {{ 'no_comments' | translate }}
       .row
+        %comment-template.col-xs-12{ ng: { repeat: 'comment in comments' }, comment: 'comment' }
+      .row
         %form.col-xs-12{ ng: { submit: 'createComment(task.id, message)',
                          show: 'commentAddFlag' },
                          role: 'form', id: 'add_comment_form' }
           %textarea{ class: 'form-control', name: 'message',
                      ng: { model: 'message' }, rows: '2',
-                     placeholder: "{{ 'enter_comment' | translate }}" }
-          %button.col-xs-12{ role: 'submit', class: 'btn btn-sm btn-primary',
-                             ng: { click: 'commentAddFlag = false' }}
+                     placeholder: "{{ 'enter_comment' | translate }}",
+                     required: true }
+          %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
             {{ 'save' | translate }}
+          .pull-right
+            %button{name: 'attachment', ngf: {select: 'uploadFiles($files)', multiple: 'true'},
+                    ng: {model: 'files'}, class: 'btn btn-sm btn-default' }
+              {{ 'attach_files' | translate }}
+          .attach-wrap{ ng: { show: 'files.length > 0' } }
+            .attach-template{ ng: { repeat: 'file in files' }, file: 'file', index: '$index', delete: { file: 'deleteFile(index)' } }
         .col-xs-12
           %a{ href: '#', ng: { click: 'commentAddFlag = !commentAddFlag' } }
             %span
               {{ 'add_comment' | translate }}
-        %comment-template{ ng: { repeat: 'comment in comments' }, comment: 'comment' }
   .col-xs-3
     .task-buttons{ ng: { show: 'task_hover' } }
       %span.glyphicon.glyphicon-pencil{ ng: { click: 'showTaskEdit()' } }

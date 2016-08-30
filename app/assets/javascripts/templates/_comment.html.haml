@@ -1,7 +1,8 @@
 .col-xs-12
-  .thumbnail
-    %p.comment
-      %span
-        {{comment.message}}
-    .pull-right
+  .comment-wrap
+    .comment
+      %p.comment
+        %span
+          {{comment.message}}
       %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteComment()' } }
+    .comment-attach{ ng: { repeat: 'attach in comment.attachments' }, attach: 'attach' }

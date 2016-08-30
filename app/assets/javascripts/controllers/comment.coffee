@@ -15,6 +15,8 @@
       commentService.deleteComment($scope.comment).$promise.then(
         (data) ->
           $rootScope.$broadcast('commentUpdatedEvent')
+          $scope.commentAddFlag = false
       )
+
 
 ]

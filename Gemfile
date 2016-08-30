@@ -14,10 +14,10 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'haml-rails', '~> 0.9.0'
 
 gem 'cancancan'
-gem 'devise_token_auth'
+gem 'devise_token_auth', '0.1.38'
 gem 'omniauth-facebook'
 
-gem 'carrierwave', '~> 0.9'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
 gem 'factory_girl_rails'
@@ -27,7 +27,7 @@ gem 'rails_12factor', group: :production
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.10.2'
 gem 'bower-rails'
 gem 'angularjs-rails'
 gem 'angular-ui-router-rails'

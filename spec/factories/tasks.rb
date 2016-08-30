@@ -8,5 +8,8 @@ FactoryGirl.define do
     end
     deadline { Time.now }
     project { FactoryGirl.create(:project) }
+    after(:create) do |task|
+      task.comments << FactoryGirl.create(:comment)
+    end
   end
 end
