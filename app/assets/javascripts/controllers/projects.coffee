@@ -20,7 +20,7 @@
     $scope.initProjects()
 
     $scope.addNewProject = (project) ->
-      projectService.createProject(project).$promise.then(
+      projectService.createProject(project, $scope.user).$promise.then(
         (data) ->
           $scope.newProjectFlag = false
           $scope.initProjects()

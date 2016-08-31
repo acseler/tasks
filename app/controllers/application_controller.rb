@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     render 'layouts/application'
   end
 
+  def default_serializer_options
+    { root: false }
+  end
+
   protected
 
   def verified_request?

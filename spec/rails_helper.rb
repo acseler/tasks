@@ -16,11 +16,15 @@ require 'support/database_cleaner'
 require 'support/share_db_connection'
 require 'support/facebook_helper'
 require 'support/feature_helper'
+require 'support/controller'
+require 'rails-controller-testing'
+require 'support/access_denied_shared'
 
 Capybara.javascript_driver = :webkit
 ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   include FeatureHelper
+  include ControllerHelper
   config.fixture_path = "#{::Rails.root}/spec/factories"
 
   OmniAuth.config.test_mode = true
@@ -38,7 +42,13 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
+
+  [:controller, :view, :request].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, :type => type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
+    config.include ::Rails::Controller::Testing::Integration, :type => type
+  end
 end

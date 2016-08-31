@@ -33,10 +33,6 @@ module Api
       def user_projects
         current_user.projects
       end
-
-      def update_project(params)
-        ProjectService.new(params).call
-      end
     end
   end
 end

@@ -32,6 +32,8 @@ gem 'bower-rails'
 gem 'angularjs-rails'
 gem 'angular-ui-router-rails'
 gem 'angular-rails-templates'
+# gem 'angular_csrf'
+# gem 'ng-rails-csrf'
 gem 'angular_rails_csrf', git: 'https://github.com/differencialx/angular_rails_csrf'
 
 gem 'rack-cors', :require => 'rack/cors'
@@ -59,6 +61,7 @@ group :test do
   gem 'pry'
   gem 'simplecov', :require => false
   gem 'codeclimate-test-reporter', '0.4.8', require: nil
+  gem 'rails-controller-testing'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
