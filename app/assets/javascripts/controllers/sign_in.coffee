@@ -5,8 +5,7 @@
   '$scope'
   'ngToast'
   '$translate'
-  '$state'
-  ($auth, $scope, ngToast, $translate, $state) ->
+  ($auth, $scope, ngToast, $translate) ->
 
     $scope.$on 'auth:login-success', (ev, user) ->
       ngToast.create

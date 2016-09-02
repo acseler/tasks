@@ -1,4 +1,4 @@
-%todo-projects
+%todo-projects{ init: { projects: 'initProjects()' },  projects: 'projects' }
 .row
   .col-xs-12{ ng: { hide: 'newProjectFlag' } }
     %button.center-block{ ng: { click: 'showAddProject()' },
@@ -7,4 +7,5 @@
       %span.add-todo-button
         {{ 'add_todo' | translate }}
   .col-xs-8.col-xs-offset-2{ ng: { show: 'newProjectFlag' } }
-    %ng-include{ src: "'forms/add_new_project_form.html'" }
+    %add-new-project{ 'add-new-project': 'addNewProject(project)',
+                      'hide-add-project': 'hideAddProject()' }

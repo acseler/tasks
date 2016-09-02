@@ -2,39 +2,23 @@
                   mouseleave: 'task_hover = false' } }
   .col-xs-1
     %input{ type: 'checkbox', name: 'completed',
-              ng: { model: 'task.completed', click: 'updateTask(task)' } }
+            ng: { model: 'task.completed', click: 'updateTask(task)' } }
   .col-xs-8
     %p{ ng: { hide: 'taskEditFlag' } }
       {{task.title}}
       %span.deadline
         {{task.deadline | date:'yyyy-MM-dd'}}
-    %ng-include{ src: "'forms/update_task_title_form.html'" }
+    %update-task-title{ ng: { show: 'taskEditFlag' }, task: 'task',
+                        'update-task': 'updateTask(task)' }
     %div{ ng: { show: 'showComments' } }
       .empty-comments{ ng: { hide: 'comments.length > 0' } }
         %span
           {{ 'no_comments' | translate }}
       .row
-        %comment-template.col-xs-12{ ng: { repeat: 'comment in comments' }, comment: 'comment' }
-      .row
-        %form.col-xs-12{ ng: { submit: 'createComment(task.id, message)',
-                         show: 'commentAddFlag' },
-                         role: 'form', id: 'add_comment_form' }
-          %textarea{ class: 'form-control', name: 'message',
-                     ng: { model: 'message' }, rows: '2',
-                     placeholder: "{{ 'enter_comment' | translate }}",
-                     required: true }
-          %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
-            {{ 'save' | translate }}
-          .pull-right
-            %button{name: 'attachment', ngf: {select: 'uploadFiles($files)', multiple: 'true'},
-                    ng: {model: 'files'}, class: 'btn btn-sm btn-default' }
-              {{ 'attach_files' | translate }}
-          .attach-wrap{ ng: { show: 'files.length > 0' } }
-            .attach-template{ ng: { repeat: 'file in files' }, file: 'file', index: '$index', delete: { file: 'deleteFile(index)' } }
-        .col-xs-12
-          %a{ href: '#', ng: { click: 'commentAddFlag = !commentAddFlag' } }
-            %span
-              {{ 'add_comment' | translate }}
+        %comment-template.col-xs-12{ ng: { repeat: 'comment in comments' },
+                                     comment: 'comment',
+                                     'init-comments': 'initComments()' }
+      %add-new-comment{ 'init-comments': 'initComments()', task: 'task' }
   .col-xs-3
     .task-buttons{ ng: { show: 'task_hover' } }
       %span.glyphicon.glyphicon-pencil{ ng: { click: 'showTaskEdit()' } }

@@ -1,7 +1,6 @@
-%form{ ng: { submit: 'updateProject(projectForm)',
-               init: 'projectForm = {id: p.id, title: p.title}',
-               show: 'editedProjectId == p.id' }, role: 'form',
-               id: 'projectEditForm' }
+%form{ ng: { submit: 'updateProjectTitle(projectForm)',
+             init: 'projectForm = {id: proj.id, title: proj.title}' },
+             role: 'form', id: 'projectEditForm' }
   .input-group.input-group-sm
     %input.input-sm{ ng: { model: 'projectForm.title' }, class: 'form-control',
                    id: 'project_title', name: 'title', required: true,

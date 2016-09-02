@@ -1,17 +1,2 @@
-.row{ ng: { repeat: 'p in projects | orderBy: p.title' } }
-  .col-xs-10.col-xs-offset-1
-    .panel.panel-primary
-      .panel-heading{ ng: { mouseenter: 'head_hover=true',
-                            mouseleave: 'head_hover=false' }}
-        .calendar
-          .project-title
-            %span.glyphicon.glyphicon-calendar
-            %span{ ng: { hide: 'editedProjectId == p.id' } }
-              {{ p.title }}
-        %ng-include{ src: "'forms/update_project_title.html'" }
-        .pull-right{ ng: { show: 'head_hover' } }
-          %span.glyphicon.glyphicon-pencil{ ng: { click: 'showEditProject(p)' } }
-          |
-          %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteProject(p)' } }
-      .panel-body
-        %project-tasks{ project: 'p.id', tasks: 'p.tasks' }
+%todo-project{ ng: { repeat: 'p in projects | orderBy: p.title' }, project: 'p',
+               'init-projects': 'initProjects()' }

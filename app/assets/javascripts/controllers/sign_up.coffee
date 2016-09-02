@@ -1,11 +1,10 @@
 'use strict'
 @todoList.controller 'SignUpCtrl', [
   '$scope'
-  '$location'
   '$auth'
   'ngToast'
   '$translate'
-  ($scope, $location, $auth, ngToast, $translate) ->
+  ($scope, $auth, ngToast, $translate) ->
     $scope.$on 'auth:registration-email-error', (ev, reason) ->
       ngToast.create
         className: 'danger'

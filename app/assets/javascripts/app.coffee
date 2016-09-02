@@ -24,7 +24,6 @@
       auth : ($auth, $state) ->
         $auth.validateUser().catch (err) ->
           $state.go 'sign_in'
-
   )
   .state('sign_in',
     url: '/sign_in'

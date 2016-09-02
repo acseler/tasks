@@ -2,48 +2,13 @@
 
 @todoList.controller 'TaskCtrl', [
   '$scope'
-  'ngToast'
   '$translate'
   'errorHandler'
   'taskService'
-  '$rootScope'
   'commentService'
-  'Upload'
-  ($scope, ngToast, $translate, errorHandler, taskService, $rootScope, commentService, Upload) ->
+  ($scope, $translate, errorHandler, taskService, commentService) ->
     $scope.taskEditFlag = false
     $scope.showComments = false
-
-    $scope.createComment = (taskId, message) ->
-      commentService.createComment(taskId, message).$promise.then(
-        (data) ->
-          if ($scope.files)
-            for file in $scope.files
-              Upload.upload(
-                  url: "api/v1/comments/#{data.id}/attachments"
-                  method: 'POST'
-                  file: file
-                ).success(
-                  (data) ->
-                    $scope.initComments()
-                    $scope.commentAddFlag = false
-                    $scope.message = ''
-                    $scope.files = null
-                ).error(
-                  (err) ->
-                    errorHandler.handleError(err)
-              )
-          else
-            $scope.initComments()
-            $scope.commentAddFlag = false
-            $scope.message = ''
-        (err) ->
-          errorHandler.handleError(err)
-      )
-
-
-    $scope.updateTaskTitle = (task, taskTitle) ->
-      task.title = taskTitle
-      $scope.updateTask($scope.task)
 
     $scope.initComments = ->
       commentService.getComments($scope.task.id).$promise.then(
@@ -51,17 +16,13 @@
           $scope.comments = data
       )
 
-    $rootScope.$on('commentUpdatedEvent', ->
-      $scope.initComments()
-    )
-
     $scope.initComments()
 
     $scope.deleteTask = (task) ->
       if confirm($translate.instant('delete_task'))
         taskService.deleteTask(task).$promise.then(
           (data) ->
-            $rootScope.$broadcast('taskUpdatedEvent')
+            $scope.initTasks()
           (err) ->
             errorHandler.handleError(err)
         )
@@ -73,7 +34,7 @@
     $scope.updateTask = (task)->
       taskService.updateTask(task).$promise.then(
         (data) ->
-          $rootScope.$broadcast('taskUpdatedEvent')
+          $scope.initTasks()
         (err) ->
           errorHandler.handleError(err)
       )
@@ -83,7 +44,4 @@
       $scope.deadlineEdit = false
       $scope.updateTask($scope.task)
 
-    $scope.deleteFile = (index) ->
-      $scope.files.splice(index, 1)
-      $scope.files
 ]

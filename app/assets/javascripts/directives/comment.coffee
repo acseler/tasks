@@ -3,6 +3,9 @@
 @todoList.directive 'commentTemplate', ->
   restrict: 'E'
   replace: true
-  scope: { comment: '=' }
+  scope: {
+    comment: '='
+    initComments: '&'
+  }
   templateUrl: '_comment.html'
   controller: 'commentCtrl'

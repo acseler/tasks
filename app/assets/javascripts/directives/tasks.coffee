@@ -2,7 +2,7 @@
 
 @todoList.directive 'projectTasks', ->
   restrict: 'E'
-  scope: {project: '=project', tasks: '=' }
+  scope: { projectId: '=', tasks: '=' }
   templateUrl: '_tasks.html'
   controller: 'TasksCtrl'
 

@@ -19,14 +19,13 @@
     background-image: linear-gradient(to bottom, #72ba94, #3d674f);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#72ba94, endColorstr=#3d674f);
   }
 
-  project-tasks > ng-include {
+  project-tasks > create-task {
     .col-xs-12 {
       padding: 10px 10px 10px 0;
     }
-  }
-
-  .task-form {
-    background-color: #cfcfcf;
+    .task-form {
+      background-color: #cfcfcf;
+    }
   }
 
   span.glyphicon.glyphicon-plus {
