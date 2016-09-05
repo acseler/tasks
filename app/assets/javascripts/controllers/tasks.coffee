@@ -5,7 +5,6 @@
   'errorHandler'
   'taskService'
   ($scope, errorHandler, taskService) ->
-
     $scope.initTasks = ->
       taskService.getTasks($scope.projectId).$promise.then(
         (data) ->
@@ -22,10 +21,10 @@
 
     $scope.sortableOptions =
       stop: (e, ui) ->
-        $scope.tasks.map( (t, i)->
-          unless t.priority == i
-            t.priority = i
-            taskService.updateTask(t)
+        $scope.tasks.map( (task, index) ->
+          unless task.priority == index
+            task.priority = index
+            taskService.updateTask(task)
         )
       axis: 'y'
 ]

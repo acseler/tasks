@@ -15,7 +15,6 @@
       Task.query({project_id: projectId})
 
     createTask: (task)->
-      console.log(task)
       Task.save({ project_id: task.project_id }, task)
 
     updateTask: (task) ->

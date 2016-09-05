@@ -14,7 +14,7 @@
       $scope.addProject = (project) ->
         $scope.addNewProject(project: project).then(
           (data) ->
-            $scope.hideAddProject()
             $scope.project.title = ''
+            $scope.hideAddProject()
         )
   ]

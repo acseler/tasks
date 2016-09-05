@@ -41,13 +41,13 @@ feature 'Comments' do
     expect(page).to have_css('form#add_comment_form', visible: false)
     expect(page).not_to have_css('.empty-comments span',
                              text: 'You have no comments yet.')
-    expect(page).to have_css('.comment-wrap p.comment',
+    expect(page).to have_css('.comment-wrap p',
                              text: comment_attr[:message])
   end
 
   def delete_and_check
-    expect(page).to have_css(".comment-wrap span.glyphicon-trash")
-    find(".comment-wrap span.glyphicon-trash").click
+    expect(page).to have_css('.comment-wrap span.glyphicon-trash')
+    find('.comment-wrap span.glyphicon-trash').click
     sleep 1
     expect(page).to have_css('.empty-comments span',
                                  text: 'You have no comments yet.')

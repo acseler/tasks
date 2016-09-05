@@ -1,2 +1,4 @@
-%a{ href: '{{attach.file.url}}', download: true, target: '_parent' }
-  {{attach.file_identifier}}
+.attach-download
+  %a{ href: '{{attach.file.url}}', download: true, target: '_parent' }
+    {{attach.file_identifier}}
+    .glyphicon.glyphicon-download-alt

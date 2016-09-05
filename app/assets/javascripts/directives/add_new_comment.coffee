@@ -21,15 +21,16 @@
             if ($scope.files)
               uploadFiles(data)
             else
-              $scope.initComments()
               $scope.commentAddFlag = false
               $scope.message = ''
+              $scope.initComments()
           (err) ->
             errorHandler.handleError(err)
         )
 
       $scope.deleteFile = (index) ->
         $scope.files.splice(index, 1)
+        $scope.files = null if $scope.files.length == 0
         $scope.files
 
       uploadFiles = (data)->
@@ -40,10 +41,10 @@
             file: file
           ).success(
             (data) ->
-              $scope.initComments()
               $scope.commentAddFlag = false
               $scope.message = ''
               $scope.files = null
+              $scope.initComments()
           ).error(
             (err) ->
               errorHandler.handleError(err)

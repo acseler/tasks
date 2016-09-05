@@ -4,7 +4,6 @@
   '$scope'
   'commentService'
   ($scope, commentService) ->
-
     $scope.commentAddFlag = false
 
     $scope.deleteComment = ->
@@ -13,6 +12,4 @@
           $scope.initComments()
           $scope.commentAddFlag = false
       )
-
-
 ]

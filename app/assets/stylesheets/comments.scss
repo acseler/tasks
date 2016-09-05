@@ -1,5 +1,6 @@
 .col-xs-12 {
   .comment-wrap {
+    background-color: #e6e6e6;
     border: 1px solid #d3d4cb;
     border-radius: 3px;
     padding: 5px;
@@ -9,12 +10,22 @@
       right: 20px;
       top: 8px;
     }
+    .attachments-header {
+      margin: 5px 0 0 0;
+      font-size: 12px;
+    }
   }
 
   .comment {
     margin-bottom: 0;
     word-wrap: break-word;
     overflow: hidden;
+    p {
+      color: #3F51B5;
+      font-size: 12px;
+      font-style: italic;
+      margin-bottom: 0;
+    }
   }
 
   textarea {

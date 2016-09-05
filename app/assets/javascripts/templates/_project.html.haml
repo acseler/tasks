@@ -10,7 +10,7 @@
               {{ project.title }}
         %update-project-title{ 'update-project': 'updateProject(project)',
                                ng: { show: 'editFlag' }, proj: 'project' }
-        .pull-right{ ng: { show: 'head_hover' } }
+        .pull-right.animate-show{ ng: { show: 'head_hover' } }
           %span.glyphicon.glyphicon-pencil{ ng: { click: 'editFlag = !editFlag' } }
           |
           %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteProject(project)' } }

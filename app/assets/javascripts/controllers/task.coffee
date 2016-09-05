@@ -43,5 +43,4 @@
       $scope.task_hover = false
       $scope.deadlineEdit = false
       $scope.updateTask($scope.task)
-
 ]

@@ -15,6 +15,7 @@ translations =
   add_todo: 'Add TODO List'
   proj_title_placeholder: 'Enter project name'
   proj_title_new_placeholder: 'Ender new project name'
+  task_title_placeholder: 'Start typing here to create a task...'
   add: 'Add'
   save: 'Save'
   delete_project: 'Do you realy want to remove this project?'
@@ -25,6 +26,7 @@ translations =
   add_comment: 'Add Comment'
   enter_comment: 'Enter comment for task'
   attach_files: 'Attach files'
+  attachments: 'Attachments:'
 
 @todoList.config [
   '$translateProvider'

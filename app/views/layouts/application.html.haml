@@ -9,9 +9,9 @@
 %body
   %div{ id: 'loading-bar-container' }
   .main-wrap
-    %div.container.header-height{ ng: { include: "'_header.html'" } }
+    .container.header-height{ ng: { include: "'_header.html'" } }
     %toast
     %div.main-height
       .container.main-view-container{'ui-view': true}
-    %div.footer-height
+    .footer-height
       .container{ ng: { include: "'_footer.html'" } }

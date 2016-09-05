@@ -4,7 +4,7 @@
     .input-group.input-group-sm.col-xs-11
       %input.input-sm{ ng: { model: 'taskForm.title' }, class: 'form-control',
                  id: 'project_title', name: 'title', required: true,
-                 placeholder: "{{ 'proj_title_new_placeholder' | translate }}" }
+                 placeholder: "{{ 'task_title_placeholder' | translate }}" }
       %span.input-group-btn
-        %button{ role: 'submit', class: 'btn btn-sm btn-primary' }
+        %button{ role: 'submit', class: 'btn btn-sm btn-primary add-task-btn' }
           {{ 'add_task' | translate }}
