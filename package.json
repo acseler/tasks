@@ -1,8 +1,11 @@
 {
+  "name": "todolist",
+  "version": "0.1.0",
   "dependencies": {
-    "bower": "latest"
+    "bower": "1.7.9"
   },
-  "scripts": {
-    "postinstall": "bower install"
+  "engine": {
+    "node": "0.12.x",
+    "npm": "4.5.0"
   }
 }
