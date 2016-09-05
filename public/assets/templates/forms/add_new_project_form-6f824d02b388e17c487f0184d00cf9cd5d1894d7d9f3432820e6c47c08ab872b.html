@@ -1,0 +1,13 @@
+<form id='projectForm' ng-submit='addProject(project)' role='form'>
+  <div class='input-group'>
+    <input class='form-control input-sm' id='title' name='title' ng-model='project.title' placeholder="{{ 'proj_title_placeholder' | translate }}" required>
+    <div class='input-group-btn'>
+      <button class='btn btn-sm btn-default' type='submit'>
+        {{ 'add' | translate }}
+      </button>
+      <button class='btn btn-sm btn-default' ng-click='hideAddProject()' type='button'>
+        {{ 'cancel' | translate }}
+      </button>
+    </div>
+  </div>
+</form>

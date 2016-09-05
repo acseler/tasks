@@ -1,0 +1,13 @@
+<form id='addTaskForm' ng-submit='createNewTask(taskForm)' role='form'>
+  <div class='col-xs-12 task-form' ng-class='emptyTasks()'>
+    <span aria-hidden class='glyphicon glyphicon-plus col-xs-1 text-center'></span>
+    <div class='input-group input-group-sm col-xs-11'>
+      <input class='form-control input-sm' id='project_title' name='title' ng-model='taskForm.title' placeholder="{{ 'task_title_placeholder' | translate }}" required>
+      <span class='input-group-btn'>
+        <button class='btn btn-sm btn-primary add-task-btn' role='submit'>
+          {{ 'add_task' | translate }}
+        </button>
+      </span>
+    </div>
+  </div>
+</form>

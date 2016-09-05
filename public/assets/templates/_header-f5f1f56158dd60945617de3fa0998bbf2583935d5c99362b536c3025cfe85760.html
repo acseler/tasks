@@ -1,0 +1,32 @@
+<div class='row'>
+  <div class='col-xs-12'>
+    <div class='header-content'>
+      <ul class='pull-right'>
+        <li ng-show='!user.id'>
+          <a ng-href='/sign_in'>
+            {{'sign_in' | translate}}
+          </a>
+        </li>
+        <li ng-show='!user.id'>
+          <a ng-href='/sign_up'>
+            {{'sign_up' | translate}}
+          </a>
+        </li>
+        <li ng-show='user.id'>
+          <a href='#' ng-click='signOut()'>
+            {{'sign_out' | translate}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <h1 class='text-center app-title'>
+    {{ 'simple_todo' | translate }}
+    <br>
+    <span class='text-center'>
+      {{ 'from_ruby' | translate }}
+    </span>
+  </h1>
+</div>

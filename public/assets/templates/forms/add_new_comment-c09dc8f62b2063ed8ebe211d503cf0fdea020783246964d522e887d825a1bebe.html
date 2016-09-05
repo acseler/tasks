@@ -1,0 +1,23 @@
+<div class='row'>
+  <form class='col-xs-12' id='add_comment_form' ng-show='commentAddFlag' ng-submit='createComment(message)' role='form'>
+    <textarea class='form-control' name='message' ng-model='message' placeholder="{{ 'enter_comment' | translate }}" required rows='2'></textarea>
+    <button class='btn btn-sm btn-primary' role='submit'>
+      {{ 'save' | translate }}
+    </button>
+    <div class='pull-right'>
+      <button class='btn btn-sm btn-default' name='attachment' ng-model='files' ngf-multiple='true' ngf-select='uploadFiles($files)'>
+        {{ 'attach_files' | translate }}
+      </button>
+    </div>
+    <div class='attach-wrap' ng-show='files.length &gt; 0'>
+      <div class='attach-template' delete-file='deleteFile(index)' file='file' index='$index' ng-repeat='file in files'></div>
+    </div>
+  </form>
+  <div class='col-xs-12'>
+    <a href='#' ng-click='commentAddFlag = !commentAddFlag'>
+      <span>
+        {{ 'add_comment' | translate }}
+      </span>
+    </a>
+  </div>
+</div>

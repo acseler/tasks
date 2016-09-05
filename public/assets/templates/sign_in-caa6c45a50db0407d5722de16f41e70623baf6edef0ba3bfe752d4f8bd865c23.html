@@ -1,0 +1,24 @@
+<div class='row'>
+  <div class='col-xs-6 col-xs-offset-3' id='sign_in_form'>
+    <h2 class='text-center'>
+      {{'sign_in' | translate}}
+    </h2>
+    <form ng-init='loginForm = {}' ng-submit='submitLogin(loginForm)' role='form'>
+      <div class='form-group'>
+        <input class='input-sm form-control' id='email' name='email' ng-model='loginForm.email' placeholder="{{'email' | translate}}" required type='email'>
+      </div>
+      <div class='form-group'>
+        <input class='input-sm form-control' id='password' name='password' ng-model='loginForm.password' placeholder="{{'password' | translate}}" required type='password'>
+      </div>
+      <button class='btn btn-sm btn-primary' type='submit'>
+        {{'sign_in' | translate}}
+      </button>
+      <span>
+        OR
+      </span>
+      <a class='btn btn-sm btn-default' href='#' ng-click="authenticate('facebook')">
+        Facebook
+      </a>
+    </form>
+  </div>
+</div>

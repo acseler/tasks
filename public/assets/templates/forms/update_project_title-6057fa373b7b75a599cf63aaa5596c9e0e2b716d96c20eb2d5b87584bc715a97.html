@@ -1,0 +1,10 @@
+<form id='projectEditForm' ng-init='projectForm = {id: proj.id, title: proj.title}' ng-submit='updateProjectTitle(projectForm)' role='form'>
+  <div class='input-group input-group-sm'>
+    <input class='form-control input-sm' id='project_title' name='title' ng-model='projectForm.title' placeholder='{{ proj_title_new_placeholder | translate }}' required>
+    <span class='input-group-btn'>
+      <button class='btn btn-sm btn-primary' role='submit'>
+        {{ 'save' | translate }}
+      </button>
+    </span>
+  </div>
+</form>

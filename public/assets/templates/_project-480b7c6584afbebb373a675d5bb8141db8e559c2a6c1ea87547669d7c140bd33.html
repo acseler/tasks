@@ -1,0 +1,25 @@
+<div class='row'>
+  <div class='col-xs-10 col-xs-offset-1'>
+    <div class='panel panel-primary'>
+      <div class='panel-heading' ng-mouseenter='head_hover=true' ng-mouseleave='head_hover=false'>
+        <div class='calendar'>
+          <div class='project-title'>
+            <span class='glyphicon glyphicon-calendar'></span>
+            <span ng-hide='editFlag'>
+              {{ project.title }}
+            </span>
+          </div>
+        </div>
+        <update-project-title ng-show='editFlag' proj='project' update-project='updateProject(project)'></update-project-title>
+        <div class='pull-right animate-show' ng-show='head_hover'>
+          <span class='glyphicon glyphicon-pencil' ng-click='editFlag = !editFlag'></span>
+          |
+          <span class='glyphicon glyphicon-trash' ng-click='deleteProject(project)'></span>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <project-tasks project-id='project.id' tasks='project.tasks'></project-tasks>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class='row'>
+  <form id='update_task_title' ng-submit='updateTaskTitle(taskTitleEdit)' role='form'>
+    <div class='col-xs-12'>
+      <div class='input-group input-group-sm'>
+        <input class='form-control input-sm' name='task_title' ng-model='taskTitleEdit' type='text'>
+        <span class='input-group-btn'>
+          <button class='btn btn-sm btn-primary' role='submit'>
+            {{ 'save' | translate }}
+          </button>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
