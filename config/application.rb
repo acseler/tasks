@@ -32,5 +32,6 @@ module TodoList
     end
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.assets.initialize_on_precompile = false
   end
 end
