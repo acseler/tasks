@@ -19,6 +19,7 @@ require 'support/feature_helper'
 require 'support/controller'
 require 'rails-controller-testing'
 require 'support/access_denied_shared'
+require 'codeclimate-test-reporter'
 
 Capybara.javascript_driver = :webkit
 Capybara.default_wait_time = 15
