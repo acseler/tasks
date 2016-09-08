@@ -1,20 +1,23 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 5.0.0'
+gem 'rails', '5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+
+gem 'sass-rails', '~> 5.0.0'
+gem 'sprockets', '3.6.3'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'haml-rails', '~> 0.9.0'
 
 gem 'cancancan'
-gem 'devise'
+gem 'devise_token_auth', '0.1.38'
 gem 'omniauth-facebook'
 
-gem 'carrierwave', '~> 0.9'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
 gem 'factory_girl_rails'
@@ -22,13 +25,20 @@ gem 'ffaker'
 gem 'rails_12factor', group: :production
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'active_model_serializers', '0.10.2'
+gem 'bower-rails'
 gem 'angularjs-rails'
+gem 'angular-ui-router-rails'
+gem 'angular-rails-templates'
+gem 'angular_rails_csrf', git: 'https://github.com/differencialx/angular_rails_csrf'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 end
 
 group :development do
@@ -49,6 +59,7 @@ group :test do
   gem 'pry'
   gem 'simplecov', :require => false
   gem 'codeclimate-test-reporter', '0.4.8', require: nil
+  gem 'rails-controller-testing'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

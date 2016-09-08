@@ -1,0 +1,20 @@
+.row
+  .col-xs-6.col-xs-offset-3{ id: 'sign_in_form' }
+    %h2.text-center
+      {{'sign_in' | translate}}
+    %form{ ng: { submit: 'submitLogin(loginForm)',
+                 init: 'loginForm = {}' }, role: 'form' }
+      .form-group
+        %input{ type: 'email', name: 'email', id: 'email',
+                ng: { model: 'loginForm.email' }, required: true,
+                class: 'input-sm form-control', placeholder: "{{'email' | translate}}" }
+      .form-group
+        %input{ type: 'password', name: 'password', id: 'password',
+                ng: { model: 'loginForm.password' }, required: true,
+                class: 'input-sm form-control', placeholder: "{{'password' | translate}}" }
+      %button{ type: 'submit', class: 'btn btn-sm btn-primary'}
+        {{'sign_in' | translate}}
+      %span
+        OR
+      %a{ ng: { click: "authenticate('facebook')" } ,class: 'btn btn-sm btn-default', href: '#' }
+        Facebook

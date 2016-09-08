@@ -1,11 +1,17 @@
 !!!
-%html{ 'ng-app': true }
+%html{ ng: { app: 'todoList' } }
 %head
 %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 %title TodoList
 = csrf_meta_tags
-= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'application'
+= javascript_include_tag 'application'
 %body
+  %div{ id: 'loading-bar-container' }
   .main-wrap
-    = yield
+    .container.header-height{ ng: { include: "'_header.html'" } }
+    %toast
+    %div.main-height
+      .container.main-view-container{'ui-view': true}
+    .footer-height
+      .container{ ng: { include: "'_footer.html'" } }

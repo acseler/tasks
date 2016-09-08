@@ -1,0 +1,39 @@
+.each-task{ ng: { mouseenter: 'task_hover = true',
+                  mouseleave: 'task_hover = false' } }
+  .col-xs-1
+    %input{ type: 'checkbox', name: 'completed',
+            ng: { model: 'task.completed', click: 'updateTask(task)' } }
+  .col-xs-8
+    %p.task-title{ ng: { hide: 'taskEditFlag' } }
+      {{task.title}}
+      %span.deadline{ ng: { show: 'task.deadline' } }
+        {{task.deadline | date:'yyyy-MM-dd'}}
+    %update-task-title{ ng: { show: 'taskEditFlag' }, task: 'task',
+                        'update-task': 'updateTask(task)' }
+    %div{ ng: { show: 'showComments' } }
+      .empty-comments{ ng: { hide: 'comments.length > 0' } }
+        %span
+          {{ 'no_comments' | translate }}
+      .row
+        %comment-template.col-xs-12{ ng: { repeat: 'comment in comments' },
+                                     comment: 'comment',
+                                     'init-comments': 'initComments()' }
+      %add-new-comment{ 'init-comments': 'initComments()', task: 'task' }
+  .col-xs-3
+    .task-buttons.animate-show{ ng: { show: 'task_hover' } }
+      %span.glyphicon.glyphicon-pencil{ ng: { click: 'showTaskEdit()' } }
+      |
+      %span{ role: 'button',  data: { toggle: 'dropdown'},
+             class: 'dropdown-toggle glyphicon glyphicon-calendar',
+             }
+      %ul.dropdown-menu
+        %datetimepicker{ ng: { model: 'task.deadline' },
+                               'datetimepicker-neutral-timezone': true,
+                               datetimepicker: { config: "{dropdownSelector: '.dropdown-toggle', minView: 'day'}" },
+                               'on-set-time': 'assignDeadline()' }
+      |
+      %span.glyphicon.glyphicon-comment{ ng: { click: 'showComments = !showComments' } }
+      |
+      %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteTask(task)' } }
+
+

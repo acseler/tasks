@@ -1,0 +1,22 @@
+.attach-wrap {
+  border: 1px solid #d3d4cb;
+  border-radius: 3px;
+  .attach-template {
+    padding: 5px;
+    display: block;
+    margin: 0;
+  }
+  a {
+    color: #cc315b;
+    text-decoration: underline;
+  }
+}
+
+.attach-download {
+  display: flex;
+  a {
+    font-size: 12px;
+    padding-left: 10px;
+    text-decoration: none;
+  }
+}
