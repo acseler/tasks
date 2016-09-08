@@ -9,7 +9,7 @@ feature 'Authentication' do
 
   scenario 'user can sign in by email and password', js: true do
     visit '/'
-    sleep 2
+    sleep 10
     check_sign_in_form
     sign_in_user_valid_params
     sleep 1
