@@ -28,7 +28,7 @@ feature 'Attachment' do
     find('.each-task p', text: task.title).hover
     expect(page).to have_css('.each-task .glyphicon.glyphicon-comment',
                              visible: true)
-    find('.each-task .glyphicon.glyphicon-comment').click
+    find('.each-task .task-buttons .glyphicon.glyphicon-comment').click
     expect(page).to have_css('.col-xs-12 a', text: 'Add Comment')
     expect(page).to have_css('.comment-wrap', count: 1)
   end

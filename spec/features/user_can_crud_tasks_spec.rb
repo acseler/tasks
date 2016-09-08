@@ -51,12 +51,12 @@ feature 'Task' do
   end
 
   def check_edit_task_title
-    expect(page).to have_css('.each-task .glyphicon.glyphicon-pencil',
+    expect(page).to have_css('.each-task .task-buttons .glyphicon.glyphicon-pencil',
                              visible: false)
     find('.each-task p', text: task.title).hover
-    expect(page).to have_css('.each-task .glyphicon.glyphicon-pencil',
+    expect(page).to have_css('.each-task .task-buttons .glyphicon.glyphicon-pencil',
                              visible: true)
-    find('.each-task .glyphicon.glyphicon-pencil').click
+    find('.each-task .task-buttons .glyphicon.glyphicon-pencil').click
     expect(page).to have_css('form#update_task_title')
     expect(page).to have_css('.form-control.input-sm')
     expect(page).to have_css('.input-group-btn button.btn.btn-primary')
@@ -71,7 +71,7 @@ feature 'Task' do
     expect(page).to have_css('.each-task', count: 1)
     sleep 2
     accept_confirm do
-      find('.each-task .glyphicon.glyphicon-trash').click
+      find('.each-task .task-buttons .glyphicon.glyphicon-trash').click
       sleep 1
     end
     expect(page).to have_css('.each-task', count: 0)
