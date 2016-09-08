@@ -9,6 +9,7 @@ feature 'Authentication' do
 
   scenario 'user can sign in by email and password', js: true do
     visit '/'
+    sleep 2
     check_sign_in_form
     sign_in_user_valid_params
     sleep 1
@@ -17,12 +18,14 @@ feature 'Authentication' do
 
   scenario 'user can see messages if wrong email or password', js: true do
     visit '/'
+    sleep 2
     check_sign_in_form
     sign_in_user_invalid_params
   end
 
   scenario 'user can sign up', js: true do
     visit '/'
+    sleep 2
     check_sign_in_form
     click_link('Sign up')
     check_sign_up_fields
@@ -33,6 +36,7 @@ feature 'Authentication' do
   scenario 'user can sign in with facebook', js: true do
     mock_auth
     visit '/'
+    sleep 2
     check_sign_in_form
     click_link('Facebook')
     expect(page).to have_content('Sign out')
