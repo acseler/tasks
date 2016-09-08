@@ -22,6 +22,7 @@ require 'support/access_denied_shared'
 
 Capybara.javascript_driver = :webkit
 Capybara.default_wait_time = 15
+CodeClimate::TestReporter.start
 ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   include FeatureHelper

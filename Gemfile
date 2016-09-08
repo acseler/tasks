@@ -32,8 +32,6 @@ gem 'bower-rails'
 gem 'angularjs-rails'
 gem 'angular-ui-router-rails'
 gem 'angular-rails-templates'
-# gem 'angular_csrf'
-# gem 'ng-rails-csrf'
 gem 'angular_rails_csrf', git: 'https://github.com/differencialx/angular_rails_csrf'
 
 gem 'rack-cors', :require => 'rack/cors'
