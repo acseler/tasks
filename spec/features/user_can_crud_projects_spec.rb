@@ -76,6 +76,7 @@ feature 'Project' do
     find('.panel-heading').hover
     sleep 1
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: true)
+    sleep 2
     accept_confirm do
       find('.pull-right .glyphicon.glyphicon-trash').click
       sleep 1
