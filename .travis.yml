@@ -5,7 +5,7 @@ services:
   - postgresql
 addons:
     code_climate:
-        repo_token: 0a2509f2525c9b150ba4eaeb8335ca5e0578c73989e2eeb6d129a032f692db39
+        repo_token: 24694c2955bdb2b16d1059b7a86e3845b8867464c3e10e75869a9a6ade2be30b
 before_script:
   - psql -c 'create database todo_list_test;' -U postgres
   - sudo apt-get install libqt4-dev libqtwebkit-dev
