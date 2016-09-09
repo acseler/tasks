@@ -47,7 +47,7 @@ feature 'Comments' do
 
   def delete_and_check
     expect(page).to have_css('.comment-wrap span.glyphicon-trash')
-    find('.comment-wrap span.glyphicon-trash').click
+    find(:css, '.comment-wrap span.glyphicon-trash').trigger('click')
     sleep 1
     expect(page).to have_css('.empty-comments span',
                                  text: 'You have no comments yet.')
