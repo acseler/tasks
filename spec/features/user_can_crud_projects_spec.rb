@@ -77,7 +77,6 @@ feature 'Project' do
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: true)
     accept_confirm do
       find(:css, '.pull-right .glyphicon.glyphicon-trash').trigger('click')
-      # find('.pull-right .glyphicon.glyphicon-trash').click
       sleep 1
     end
   end
