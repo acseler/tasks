@@ -69,9 +69,9 @@ feature 'Task' do
     expect(page).to have_css('.each-task .glyphicon.glyphicon-trash',
                              visible: true)
     expect(page).to have_css('.each-task', count: 1)
-    sleep 2
     accept_confirm do
-      find('.each-task .task-buttons .glyphicon.glyphicon-trash').click
+      find(:css, '.each-task .task-buttons .glyphicon.glyphicon-trash').trigger('click')
+      # find('.each-task .task-buttons .glyphicon.glyphicon-trash').click
       sleep 1
     end
     expect(page).to have_css('.each-task', count: 0)

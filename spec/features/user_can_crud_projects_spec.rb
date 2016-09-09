@@ -74,11 +74,10 @@ feature 'Project' do
   def check_delete_project
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: false)
     find('.panel-heading').hover
-    sleep 1
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: true)
-    sleep 2
     accept_confirm do
-      find('.pull-right .glyphicon.glyphicon-trash').click
+      find(:css, '.pull-right .glyphicon.glyphicon-trash').trigger('click')
+      # find('.pull-right .glyphicon.glyphicon-trash').click
       sleep 1
     end
   end

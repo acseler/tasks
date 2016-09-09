@@ -53,7 +53,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-webkit', '~> 1.11'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
   gem 'pry'

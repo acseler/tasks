@@ -353,7 +353,7 @@ DEPENDENCIES
   byebug
   cancancan
   capybara
-  capybara-webkit (~> 1.11)
+  capybara-webkit
   carrierwave!
   codeclimate-test-reporter (= 0.4.8)
   coffee-rails (~> 4.2)
