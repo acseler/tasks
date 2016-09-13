@@ -24,7 +24,7 @@
 - It should look like on screens (see attached file ‘rg_test_task_grid.png’). 
 - It should work like one page WEB application and should use AJAX technology, load 
 and submit data without reloading a page. 
- - It should have user authentication solution and a user should only have access to their 
+- It should have user authentication solution and a user should only have access to their 
 own projects and tasks (Devise, Cancancan). 
- - It should have automated tests for all functionality (models ­ RSpec, controllers ­ RSpec, 
+- It should have automated tests for all functionality (models ­ RSpec, controllers ­ RSpec, 
 acceptance/functional tests ­ RSpec + Capybara). 

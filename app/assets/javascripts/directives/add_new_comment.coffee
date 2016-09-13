@@ -5,7 +5,6 @@
   replace: true
   scope: {
     task: '='
-    createComment: '&'
     initComments: '&'
   }
   templateUrl: 'forms/add_new_comment.html'
