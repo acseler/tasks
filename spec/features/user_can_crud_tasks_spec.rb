@@ -21,6 +21,7 @@ feature 'Task' do
     check_tasks
     check_edit_task_title
     fill_in_and_update_task
+    check_update_task
   end
 
   scenario 'user can delete tasks', js: true do
@@ -59,7 +60,7 @@ feature 'Task' do
     find('.each-task .task-buttons .glyphicon.glyphicon-pencil').click
     expect(page).to have_css('form#update_task_title')
     expect(page).to have_css('.form-control.input-sm')
-    expect(page).to have_css('.input-group-btn button.btn.btn-primary')
+    expect(page).to have_css('.input-group-btn button.btn.btn-primary', text: 'Save')
   end
 
   def check_delete_button
@@ -100,6 +101,11 @@ feature 'Task' do
     end
     click_button('Save')
     sleep 1
+  end
+
+  def check_update_task
+    expect(page).not_to have_css('form#update_task_title')
+    expect(page).not_to have_css('.input-group-btn button.btn.btn-primary', text: 'Save')
   end
 
   def check_new_task_adding

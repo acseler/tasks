@@ -39,6 +39,7 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem "jasmine"
 end
 
 group :development do

@@ -33,4 +33,24 @@
         (err) ->
           errorHandler.handleError(err)
       )
+
+    $scope.updateProject = (project) ->
+      projectService.updateProject(project).$promise.then(
+        (data) ->
+          $scope.initProjects().then(
+            (data) ->
+              $scope.editFlag = false
+          )
+        (err) ->
+          errorHandler.handleError(err)
+      )
+
+    $scope.deleteProject = (project) ->
+      if confirm($translate.instant('delete_project'))
+        projectService.deleteProject(project).$promise.then(
+          (data) ->
+            $scope.initProjects()
+          (err) ->
+            errorHandler.handleError(err)
+        )
 ]

@@ -5,15 +5,14 @@
   replace: true
   scope: {
     task: '='
-    updateTask: '&'
+    updateTask: '='
   }
   templateUrl: 'forms/update_task_title_form.html'
   controller: [
     '$scope'
     ($scope) ->
       $scope.taskTitleEdit = $scope.task.title
-
       $scope.updateTaskTitle = (taskTitle) ->
         $scope.task.title = taskTitle
-        $scope.updateTask($scope.task)
+        $scope.updateTask(task: $scope.task)
   ]

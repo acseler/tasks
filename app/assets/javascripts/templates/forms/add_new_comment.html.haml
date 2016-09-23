@@ -1,5 +1,5 @@
 .row
-  %form.col-xs-12{ ng: { submit: 'createComment(message)',
+  %form.col-xs-12{ ng: { submit: 'addComment()',
                          show: 'commentAddFlag' },
                          role: 'form', id: 'add_comment_form' }
     %textarea{ class: 'form-control', name: 'message',
@@ -16,7 +16,7 @@
     .attach-wrap{ ng: { show: 'files.length > 0' } }
       .attach-template{ ng: { repeat: 'file in files' },
                               file: 'file', index: '$index',
-                              delete: { file: 'deleteFile(index)' } }
+                              'delete-file': 'deleteFile' } }
   .col-xs-12
     %a{ href: '#', ng: { click: 'commentAddFlag = !commentAddFlag' } }
       %span

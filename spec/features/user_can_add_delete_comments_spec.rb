@@ -33,12 +33,14 @@ feature 'Comments' do
   end
 
   def add_comment_and_check
+    expect(page).to have_css('.empty-comments span',
+                                 text: 'You have no comments yet.')
     expect(page).to have_css('form#add_comment_form', visible: false)
     click_link('Add Comment')
     expect(page).to have_css('form#add_comment_form', visible: true)
     fill_in_comment_form
     sleep 1
-    expect(page).to have_css('form#add_comment_form', visible: false)
+    expect(page).not_to have_css('form#add_comment_form')
     expect(page).not_to have_css('.empty-comments span',
                              text: 'You have no comments yet.')
     expect(page).to have_css('.comment-wrap p',

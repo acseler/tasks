@@ -5,6 +5,8 @@
   scope: {
     project: '='
     initProjects: '&'
+    updateProject: '='
+    deleteProject: '='
   }
   transclude: true
   controller: 'ProjectCtrl'
