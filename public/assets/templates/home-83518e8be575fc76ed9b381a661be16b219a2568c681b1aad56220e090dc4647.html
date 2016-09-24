@@ -1,0 +1,14 @@
+<todo-projects delete-project='deleteProject(project)' init-projects='initProjects()' projects='projects' update-project='updateProject(project)'></todo-projects>
+<div class='row'>
+  <div class='col-xs-12' ng-hide='newProjectFlag'>
+    <button class='btn btn-lg btn-primary center-block' ng-click='showAddProject()'>
+      <span aria-hidden class='glyphicon glyphicon-plus'></span>
+      <span class='add-todo-button'>
+        {{ 'add_todo' | translate }}
+      </span>
+    </button>
+  </div>
+  <div class='col-xs-8 col-xs-offset-2' ng-show='newProjectFlag'>
+    <add-new-project add-new-project='addNewProject(project)' hide-add-project='hideAddProject()'></add-new-project>
+  </div>
+</div>

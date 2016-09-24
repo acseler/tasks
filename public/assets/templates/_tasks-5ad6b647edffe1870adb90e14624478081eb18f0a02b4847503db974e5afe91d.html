@@ -1,0 +1,6 @@
+<create-task create-task='createTask(task)' project-id='projectId' tasks-count='tasks.length'></create-task>
+<div class='row' ng-show='tasks.length &gt; 0'>
+  <div class='col-xs-12' ng-model='tasks' ui-sortable='sortableOptions'>
+    <div class='task-template' delete-task='deleteTask(task)' init-project='initProject' ng-repeat="task in tasks | orderBy : 'priority'" task='task' update-task='updateTask(task)'></div>
+  </div>
+</div>

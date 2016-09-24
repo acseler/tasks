@@ -1,0 +1,16 @@
+<div class='col-xs-12'>
+  <div class='comment-wrap'>
+    <div class='comment'>
+      <p>
+        <span>
+          {{comment.message}}
+        </span>
+      </p>
+      <span class='glyphicon glyphicon-trash' ng-click='removeComment()'></span>
+    </div>
+    <p class='attachments-header' ng-show='comment.attachments.length &gt; 0'>
+      {{ 'attachments' | translate }}
+    </p>
+    <div attach='attach' class='comment-attach' ng-repeat='attach in comment.attachments'></div>
+  </div>
+</div>

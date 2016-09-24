@@ -1,0 +1,39 @@
+<div class='each-task' ng-mouseenter='task_hover = true' ng-mouseleave='task_hover = false'>
+  <div class='col-xs-1'>
+    <input name='completed' ng-click='updateTask(task)' ng-model='task.completed' type='checkbox'>
+  </div>
+  <div class='col-xs-8'>
+    <p class='task-title' ng-hide='taskEditFlag'>
+      {{task.title}}
+      <span class='deadline' ng-show='task.deadline'>
+        {{task.deadline | date:'yyyy-MM-dd'}}
+      </span>
+    </p>
+    <update-task-title ng-show='taskEditFlag' task='task' update-task='updateTask'></update-task-title>
+    <div ng-show='showComments'>
+      <div class='empty-comments' ng-hide='comments.length &gt; 0'>
+        <span>
+          {{ 'no_comments' | translate }}
+        </span>
+      </div>
+      <div class='row'>
+        <comment-template class='col-xs-12' comment='comment' delete-comment='deleteComment(comment)' ng-repeat='comment in comments'></comment-template>
+      </div>
+      <add-new-comment create-comment='createComment(message)' delete-file='deleteFile(index)' files='files'></add-new-comment>
+    </div>
+  </div>
+  <div class='col-xs-3'>
+    <div class='task-buttons animate-show' ng-show='task_hover'>
+      <span class='glyphicon glyphicon-pencil' ng-click='showTaskEdit()'></span>
+      |
+      <span class='dropdown-toggle glyphicon glyphicon-calendar' data-toggle='dropdown' role='button'></span>
+      <ul class='dropdown-menu'>
+        <datetimepicker datetimepicker-config="{dropdownSelector: '.dropdown-toggle', minView: 'day'}" datetimepicker-neutral-timezone ng-model='task.deadline' on-set-time='assignDeadline()'></datetimepicker>
+      </ul>
+      |
+      <span class='glyphicon glyphicon-comment' ng-click='showComments = !showComments'></span>
+      |
+      <span class='glyphicon glyphicon-trash' ng-click='deleteTask(task)'></span>
+    </div>
+  </div>
+</div>
