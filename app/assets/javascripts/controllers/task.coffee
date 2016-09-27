@@ -35,27 +35,27 @@
           errorHandler.handleError(err)
       )
 
-      $scope.deleteFile = (index) ->
-        $scope.files.splice(index, 1)
-        $scope.files = null if $scope.files.length == 0
-        $scope.files
+    $scope.deleteFile = (index) ->
+      $scope.files.splice(index, 1)
+      $scope.files = null if $scope.files.length == 0
+      $scope.files
 
-      uploadFiles = (data)->
-        for file in $scope.files
-          Upload.upload(
-            url: "api/v1/comments/#{data.id}/attachments"
-            method: 'POST'
-            file: file
-          ).success(
-            (data) ->
-              $scope.commentAddFlag = false
-              $scope.message = ''
-              $scope.files = null
-              $scope.initComments()
-          ).error(
-            (err) ->
-              errorHandler.handleError(err)
-          )
+    uploadFiles = (data)->
+      for file in $scope.files
+        Upload.upload(
+          url: "api/v1/comments/#{data.id}/attachments"
+          method: 'POST'
+          file: file
+        ).success(
+          (data) ->
+            $scope.commentAddFlag = false
+            $scope.message = ''
+            $scope.files = null
+            $scope.initComments()
+        ).error(
+          (err) ->
+            errorHandler.handleError(err)
+        )
 
     # Tasks methods
 

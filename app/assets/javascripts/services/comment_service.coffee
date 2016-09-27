@@ -19,4 +19,7 @@
 
     deleteComment: (comment) ->
       Comment.delete(id: comment.id)
+
+    comment: ->
+      Comment
 ]
