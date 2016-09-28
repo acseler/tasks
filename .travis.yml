@@ -21,3 +21,4 @@ before_script:
   - sleep 3
 script:
   - bundle exec rake jasmine:ci
+  - bundle exec rake
