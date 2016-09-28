@@ -21,6 +21,7 @@ feature 'Task' do
     check_tasks
     check_edit_task_title
     fill_in_and_update_task
+    check_update_task
   end
 
   scenario 'user can delete tasks', js: true do
@@ -51,15 +52,15 @@ feature 'Task' do
   end
 
   def check_edit_task_title
-    expect(page).to have_css('.each-task .glyphicon.glyphicon-pencil',
+    expect(page).to have_css('.each-task .task-buttons .glyphicon.glyphicon-pencil',
                              visible: false)
     find('.each-task p', text: task.title).hover
-    expect(page).to have_css('.each-task .glyphicon.glyphicon-pencil',
+    expect(page).to have_css('.each-task .task-buttons .glyphicon.glyphicon-pencil',
                              visible: true)
-    find('.each-task .glyphicon.glyphicon-pencil').click
+    find('.each-task .task-buttons .glyphicon.glyphicon-pencil').click
     expect(page).to have_css('form#update_task_title')
     expect(page).to have_css('.form-control.input-sm')
-    expect(page).to have_css('.input-group-btn button.btn.btn-primary')
+    expect(page).to have_css('.input-group-btn button.btn.btn-primary', text: 'Save')
   end
 
   def check_delete_button
@@ -69,9 +70,8 @@ feature 'Task' do
     expect(page).to have_css('.each-task .glyphicon.glyphicon-trash',
                              visible: true)
     expect(page).to have_css('.each-task', count: 1)
-    sleep 2
     accept_confirm do
-      find('.each-task .glyphicon.glyphicon-trash').click
+      find(:css, '.each-task .task-buttons .glyphicon.glyphicon-trash').trigger('click')
       sleep 1
     end
     expect(page).to have_css('.each-task', count: 0)
@@ -101,6 +101,11 @@ feature 'Task' do
     end
     click_button('Save')
     sleep 1
+  end
+
+  def check_update_task
+    expect(page).not_to have_css('form#update_task_title')
+    expect(page).not_to have_css('.input-group-btn button.btn.btn-primary', text: 'Save')
   end
 
   def check_new_task_adding

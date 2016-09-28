@@ -5,7 +5,7 @@
   replace: true
   scope: {
     comment: '='
-    initComments: '&'
+    deleteComment: '&'
   }
   templateUrl: '_comment.html'
   controller: 'commentCtrl'

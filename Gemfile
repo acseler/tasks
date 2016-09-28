@@ -39,6 +39,7 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem "jasmine"
 end
 
 group :development do
@@ -53,7 +54,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-webkit', '~> 1.11'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
   gem 'pry'

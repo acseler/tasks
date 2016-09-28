@@ -28,7 +28,6 @@ feature 'Project' do
     sign_in
     check_new_project(project.title)
     check_project_edit_fields
-    check_new_project(new_title)
   end
 
   scenario 'user can delete project', js: true do
@@ -69,17 +68,18 @@ feature 'Project' do
       fill_in 'project_title', with: new_title
     end
     click_button('Save')
+    expect(page).not_to have_css('.input-group span.input-group-btn button', text: 'Save')
+    expect(page).to have_css('span', text: title)
   end
 
   def check_delete_project
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: false)
     find('.panel-heading').hover
-    sleep 1
     expect(page).to have_css('.pull-right .glyphicon.glyphicon-trash', visible: true)
-    sleep 2
     accept_confirm do
-      find('.pull-right .glyphicon.glyphicon-trash').click
+      find(:css, '.pull-right .glyphicon.glyphicon-trash').trigger('click')
       sleep 1
     end
+    expect(page).not_to have_content(project.title)
   end
 end

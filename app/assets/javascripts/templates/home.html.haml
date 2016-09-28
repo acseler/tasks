@@ -1,4 +1,7 @@
-%todo-projects{ init: { projects: 'initProjects()' },  projects: 'projects' }
+%todo-projects{ 'init-projects': 'initProjects()',
+                'update-project': 'updateProject(project)',
+                'delete-project': 'deleteProject(project)',
+                projects: 'projects' }
 .row
   .col-xs-12{ ng: { hide: 'newProjectFlag' } }
     %button.center-block{ ng: { click: 'showAddProject()' },

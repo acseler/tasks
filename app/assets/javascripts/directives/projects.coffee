@@ -5,10 +5,11 @@
   scope: {
     projects: '='
     initProjects: '&'
+    updateProject: '&'
+    deleteProject: '&'
   }
   transclude: true
   controller: [
     '$scope'
-    ($scope)->
-      $scope.initProjects()
+    ($scope) ->
   ]

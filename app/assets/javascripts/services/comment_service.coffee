@@ -15,8 +15,11 @@
       Comment.query({task_id: taskId})
 
     createComment: (taskId, message) ->
-      Comment.save({ task_id: taskId } ,message: message)
+      Comment.save({ task_id: taskId }, message: message)
 
     deleteComment: (comment) ->
       Comment.delete(id: comment.id)
+
+    comment: ->
+      Comment
 ]

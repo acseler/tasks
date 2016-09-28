@@ -9,7 +9,7 @@
       %span.deadline{ ng: { show: 'task.deadline' } }
         {{task.deadline | date:'yyyy-MM-dd'}}
     %update-task-title{ ng: { show: 'taskEditFlag' }, task: 'task',
-                        'update-task': 'updateTask(task)' }
+                        'update-task': 'updateTask' }
     %div{ ng: { show: 'showComments' } }
       .empty-comments{ ng: { hide: 'comments.length > 0' } }
         %span
@@ -17,8 +17,10 @@
       .row
         %comment-template.col-xs-12{ ng: { repeat: 'comment in comments' },
                                      comment: 'comment',
-                                     'init-comments': 'initComments()' }
-      %add-new-comment{ 'init-comments': 'initComments()', task: 'task' }
+                                     'delete-comment': 'deleteComment(comment)' }
+      %add-new-comment{ 'create-comment': 'createComment(message)',
+                        'delete-file': 'deleteFile(index)',
+                        files: 'files'  }
   .col-xs-3
     .task-buttons.animate-show{ ng: { show: 'task_hover' } }
       %span.glyphicon.glyphicon-pencil{ ng: { click: 'showTaskEdit()' } }
@@ -28,9 +30,9 @@
              }
       %ul.dropdown-menu
         %datetimepicker{ ng: { model: 'task.deadline' },
-                               'datetimepicker-neutral-timezone': true,
-                               datetimepicker: { config: "{dropdownSelector: '.dropdown-toggle', minView: 'day'}" },
-                               'on-set-time': 'assignDeadline()' }
+                         'datetimepicker-neutral-timezone': true,
+                         datetimepicker: { config: "{dropdownSelector: '.dropdown-toggle', minView: 'day'}" },
+                         'on-set-time': 'assignDeadline()' }
       |
       %span.glyphicon.glyphicon-comment{ ng: { click: 'showComments = !showComments' } }
       |

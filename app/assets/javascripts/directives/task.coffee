@@ -5,7 +5,8 @@
   replace: true
   scope: {
     task: '='
-    initTasks: '&'
+    updateTask: '&'
+    deleteTask: '&'
   }
   templateUrl: '_task.html'
   controller: 'TaskCtrl'

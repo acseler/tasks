@@ -8,11 +8,11 @@
             %span.glyphicon.glyphicon-calendar
             %span{ ng: { hide: 'editFlag' } }
               {{ project.title }}
-        %update-project-title{ 'update-project': 'updateProject(project)',
+        %update-project-title{ 'update-project': 'updateProject',
                                ng: { show: 'editFlag' }, proj: 'project' }
         .pull-right.animate-show{ ng: { show: 'head_hover' } }
           %span.glyphicon.glyphicon-pencil{ ng: { click: 'editFlag = !editFlag' } }
           |
-          %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteProject(project)' } }
+          %span.glyphicon.glyphicon-trash{ ng: { click: 'removeProject(project)' } }
       .panel-body
-        %project-tasks{ 'project-id': 'project.id', tasks: 'project.tasks' }
+        %project-tasks{ 'project-id': 'project.id', tasks: 'project.tasks', 'init-projects': 'initProjects()' }

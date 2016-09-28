@@ -28,17 +28,19 @@ feature 'Comments' do
     find('.each-task p', text: task.title).hover
     expect(page).to have_css('.each-task .glyphicon.glyphicon-comment',
                              visible: true)
-    find('.each-task .glyphicon.glyphicon-comment').click
+    find(:css, '.each-task .glyphicon.glyphicon-comment').trigger('click')
     expect(page).to have_css('.col-xs-12 a', text: 'Add Comment')
   end
 
   def add_comment_and_check
+    expect(page).to have_css('.empty-comments span',
+                                 text: 'You have no comments yet.')
     expect(page).to have_css('form#add_comment_form', visible: false)
     click_link('Add Comment')
     expect(page).to have_css('form#add_comment_form', visible: true)
     fill_in_comment_form
     sleep 1
-    expect(page).to have_css('form#add_comment_form', visible: false)
+    expect(page).not_to have_css('form#add_comment_form')
     expect(page).not_to have_css('.empty-comments span',
                              text: 'You have no comments yet.')
     expect(page).to have_css('.comment-wrap p',
@@ -47,7 +49,7 @@ feature 'Comments' do
 
   def delete_and_check
     expect(page).to have_css('.comment-wrap span.glyphicon-trash')
-    find('.comment-wrap span.glyphicon-trash').click
+    find(:css, '.comment-wrap span.glyphicon-trash').trigger('click')
     sleep 1
     expect(page).to have_css('.empty-comments span',
                                  text: 'You have no comments yet.')

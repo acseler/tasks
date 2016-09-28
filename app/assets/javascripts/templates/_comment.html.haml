@@ -4,7 +4,7 @@
       %p
         %span
           {{comment.message}}
-      %span.glyphicon.glyphicon-trash{ ng: { click: 'deleteComment()' } }
+      %span.glyphicon.glyphicon-trash{ ng: { click: 'removeComment()' } }
     %p.attachments-header{ ng: { show: 'comment.attachments.length > 0' } }
       {{ 'attachments' | translate }}
     .comment-attach{ ng: { repeat: 'attach in comment.attachments' }, attach: 'attach' }

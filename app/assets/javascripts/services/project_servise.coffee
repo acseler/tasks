@@ -17,4 +17,7 @@
 
     deleteProject: (project) ->
       Project.delete({id: project.id})
+
+    project: ->
+      Project
 ]

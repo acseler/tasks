@@ -25,7 +25,7 @@ feature 'Deadline' do
     find('.each-task p', text: task.title).hover
     expect(page).to have_css('.each-task .glyphicon.glyphicon-calendar',
                              visible: true)
-    find('.each-task .glyphicon.glyphicon-calendar').click
+    find(:css, '.each-task .glyphicon.glyphicon-calendar').trigger('click')
     expect(page).to have_css('.task-buttons .dropdown-menu td.day')
     find('.dropdown-menu td.day', text: '11').click
     sleep 1

@@ -22,4 +22,7 @@
 
     deleteTask: (task) ->
       Task.delete({project_id: task.project_id, id: task.id})
+
+    task: ->
+      Task
 ]

@@ -4,7 +4,7 @@
   restrict: 'E'
   scope: {
     proj: '='
-    updateProject: '&'
+    updateProject: '='
   }
   templateUrl: 'forms/update_project_title.html'
   controller: [
