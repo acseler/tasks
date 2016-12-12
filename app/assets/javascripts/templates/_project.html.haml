@@ -1,0 +1,18 @@
+.row
+  .col-xs-10.col-xs-offset-1
+    .panel.panel-primary
+      .panel-heading{ ng: { mouseenter: 'head_hover=true',
+                            mouseleave: 'head_hover=false' }}
+        .calendar
+          .project-title
+            %span.glyphicon.glyphicon-calendar
+            %span{ ng: { hide: 'editFlag' } }
+              {{ project.title }}
+        %update-project-title{ 'update-project': 'updateProject',
+                               ng: { show: 'editFlag' }, proj: 'project' }
+        .pull-right.animate-show{ ng: { show: 'head_hover' } }
+          %span.glyphicon.glyphicon-pencil{ ng: { click: 'editFlag = !editFlag' } }
+          |
+          %span.glyphicon.glyphicon-trash{ ng: { click: 'removeProject(project)' } }
+      .panel-body
+        %project-tasks{ 'project-id': 'project.id', tasks: 'project.tasks', 'init-projects': 'initProjects()' }

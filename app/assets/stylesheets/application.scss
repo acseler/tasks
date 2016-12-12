@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'home';
+@import 'tasks';
+@import 'comments';
+@import 'attach';
+@import "ngtoast/dist/ngToast.min";
+@import "ngtoast/dist/ngToast-animations.min";
+@import "angular-loading-bar/build/loading-bar.min";
+@import "angular-bootstrap-datetimepicker/src/css/datetimepicker";

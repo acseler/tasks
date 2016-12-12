@@ -1,0 +1,10 @@
+%form{ ng: { submit: 'createNewTask(taskForm)' }, role: 'form', id: 'addTaskForm' }
+  .col-xs-12.task-form{ ng: { class: 'emptyTasks()' } }
+    %span.glyphicon.glyphicon-plus.col-xs-1.text-center{ aria: { hidden: true } }
+    .input-group.input-group-sm.col-xs-11
+      %input.input-sm{ ng: { model: 'taskForm.title' }, class: 'form-control',
+                 id: 'project_title', name: 'title', required: true,
+                 placeholder: "{{ 'task_title_placeholder' | translate }}" }
+      %span.input-group-btn
+        %button{ role: 'submit', class: 'btn btn-sm btn-primary add-task-btn' }
+          {{ 'add_task' | translate }}

@@ -1,0 +1,14 @@
+%todo-projects{ 'init-projects': 'initProjects()',
+                'update-project': 'updateProject(project)',
+                'delete-project': 'deleteProject(project)',
+                projects: 'projects' }
+.row
+  .col-xs-12{ ng: { hide: 'newProjectFlag' } }
+    %button.center-block{ ng: { click: 'showAddProject()' },
+                          class: 'btn btn-lg btn-primary' }
+      %span.glyphicon.glyphicon-plus{ aria: { hidden: true }  }
+      %span.add-todo-button
+        {{ 'add_todo' | translate }}
+  .col-xs-8.col-xs-offset-2{ ng: { show: 'newProjectFlag' } }
+    %add-new-project{ 'add-new-project': 'addNewProject(project)',
+                      'hide-add-project': 'hideAddProject()' }

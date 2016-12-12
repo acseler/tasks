@@ -1,0 +1,9 @@
+%create-task{ 'create-task': 'createTask(task)', 'project-id': 'projectId',
+              'tasks-count': 'tasks.length' }
+.row{ ng: { show: 'tasks.length > 0' } }
+  .col-xs-12{ ui: { sortable: 'sortableOptions' }, ng: { model: 'tasks' } }
+    .task-template{ ng: { repeat: "task in tasks | orderBy : 'priority'" },
+                    task: 'task',
+                    'init-project': 'initProject',
+                    'delete-task': 'deleteTask(task)',
+                    'update-task': 'updateTask(task)' }
